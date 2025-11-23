@@ -13,15 +13,17 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <a href="index.html" class="nav-logo" style="text-decoration: none; color: inherit;">
                 <i class="fas fa-snake"></i>
-                <span>Học Python Vui Vẻ</span>
-            </div>
+                <span>🐍 Python Vui Vẻ</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="index.html">🏠 Trang Chủ</a></li>
-                <li><a href="basic.html" class="active">📚 Python Cơ Bản</a></li>
-                <li><a href="advanced.html">🚀 Python Nâng Cao</a></li>
+                <li><a href="basic.html" class="active">📚 Cơ Bản</a></li>
+                <li><a href="intermediate.html">📖 Trung Cấp</a></li>
+                <li><a href="advanced.html">🚀 Nâng Cao</a></li>
                 <li><a href="algorithms.html">🧮 Thuật Toán</a></li>
+                <li><a href="projects.html">🎮 Dự Án</a></li>
             </ul>
         </div>
     </nav>
@@ -212,6 +214,33 @@ thich_lap_trinh = <span class="keyword">True</span><br>
                     <code>chieu_cao</code> lưu số thập phân, <code>thich_lap_trinh</code> lưu True/False.
                 </div>
 
+                <div id="python-runner-ch2-1"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-ch2-1').innerHTML = createPythonRunner(`# Biến như hộp đồ chơi
+ten = "Minh"
+tuoi = 10
+chieu_cao = 1.35  # mét
+thich_lap_trinh = True
+
+print("Tên:", ten)
+print("Tuổi:", tuoi)
+print("Chiều cao:", chieu_cao, "mét")
+print("Thích lập trình:", thich_lap_trinh)`, 'python-runner-ch2-1');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
+
                 <h3>📝 Ví dụ 2: Tính toán với biến</h3>
                 <div class="code-example">
                     <code>
@@ -233,6 +262,33 @@ diem_trung_binh = tong_diem / <span class="number">3</span><br>
                     <strong>Giải thích:</strong> Ta có thể dùng biến để tính toán. <code>tong_diem</code> là tổng 3 môn, 
                     <code>diem_trung_binh</code> là tổng chia 3.
                 </div>
+
+                <div id="python-runner-ch2-2"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-ch2-2').innerHTML = createPythonRunner(`# Tính toán với biến
+diem_toan = 9
+diem_van = 8
+diem_anh = 10
+
+tong_diem = diem_toan + diem_van + diem_anh
+print("Tổng điểm:", tong_diem)
+
+diem_trung_binh = tong_diem / 3
+print("Điểm trung bình:", diem_trung_binh)`, 'python-runner-ch2-2');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
 
                 <div class="exercise">
                     <h4>📚 Bài Tập Thực Hành</h4>
@@ -306,6 +362,28 @@ ten = <span class="function">input</span>(<span class="string">"Bạn tên gì? 
                     Dữ liệu nhập vào được lưu vào biến <code>ten</code>.
                 </div>
 
+                <div id="python-runner-ch3-1"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-ch3-1').innerHTML = createPythonRunner(`# Nhập tên và in ra (ví dụ)
+ten = "Minh"  # Trong thực tế: ten = input("Bạn tên gì? ")
+
+print("Xin chào", ten, "!")
+print("Rất vui được gặp bạn!")`, 'python-runner-ch3-1');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
+
                 <h3>📝 Ví dụ 2: Nhập số và tính toán</h3>
                 <div class="code-example">
                     <code>
@@ -326,6 +404,29 @@ tong = so_1 + so_2<br>
                     <strong>Giải thích:</strong> <code>input()</code> luôn trả về chuỗi. Muốn tính toán, phải dùng <code>int()</code> 
                     để chuyển sang số nguyên.
                 </div>
+
+                <div id="python-runner-ch3-2"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-ch3-2').innerHTML = createPythonRunner(`# Nhập số và tính toán (ví dụ)
+so_1 = 15  # Trong thực tế: so_1 = int(input("Nhập số thứ nhất: "))
+so_2 = 7   # Trong thực tế: so_2 = int(input("Nhập số thứ hai: "))
+
+tong = so_1 + so_2
+print("Tổng của", so_1, "và", so_2, "là:", tong)`, 'python-runner-ch3-2');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
 
                 <h3>🔄 Chuyển đổi kiểu dữ liệu</h3>
                 <ul>
@@ -390,6 +491,33 @@ b = <span class="number">3</span><br>
                     </code>
                 </div>
 
+                <div id="python-runner-ch4-1"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-ch4-1').innerHTML = createPythonRunner(`# Các phép toán
+a = 10
+b = 3
+
+print("a + b =", a + b)  # Cộng
+print("a - b =", a - b)  # Trừ
+print("a * b =", a * b)  # Nhân
+print("a / b =", a / b)  # Chia
+print("a % b =", a % b)  # Chia lấy dư
+print("a ** b =", a ** b)  # Lũy thừa`, 'python-runner-ch4-1');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
+
                 <h3>📝 Ví dụ 2: Tính điểm trung bình</h3>
                 <div class="code-example">
                     <code>
@@ -407,6 +535,32 @@ trung_binh = <span class="function">round</span>(trung_binh, <span class="number
 <span class="function">print</span>(<span class="string">"Điểm trung bình:"</span>, trung_binh)
                     </code>
                 </div>
+
+                <div id="python-runner-ch4-2"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-ch4-2').innerHTML = createPythonRunner(`# Tính điểm trung bình (ví dụ)
+diem_1 = 8.5  # Trong thực tế: float(input("Điểm môn 1: "))
+diem_2 = 9.0
+diem_3 = 7.5
+
+trung_binh = (diem_1 + diem_2 + diem_3) / 3
+trung_binh = round(trung_binh, 1)
+
+print("Điểm trung bình:", trung_binh)`, 'python-runner-ch4-2');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
 
                 <div class="exercise">
                     <h4>📚 Bài Tập Thực Hành</h4>
@@ -452,6 +606,29 @@ ho_ten = ho + <span class="string">" "</span> + ten<br>
                     </code>
                 </div>
 
+                <div id="python-runner-ch5-1"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-ch5-1').innerHTML = createPythonRunner(`# Nối chuỗi
+ho = "Nguyễn"
+ten = "Văn An"
+ho_ten = ho + " " + ten
+
+print("Họ tên đầy đủ:", ho_ten)`, 'python-runner-ch5-1');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
+
                 <h3>✨ F-string (Định dạng chuỗi)</h3>
                 <p>F-string là cách dễ nhất để tạo chuỗi có biến!</p>
 
@@ -467,6 +644,34 @@ cau = <span class="string">f"Tên: {ten}, Tuổi: {tuoi}, Điểm: {diem}"</span
 <span class="function">print</span>(cau)
                     </code>
                 </div>
+                <div class="code-explanation">
+                    <strong>Giải thích:</strong> F-string dùng <code>f"..."</code> và <code>{biến}</code> để chèn biến vào chuỗi. Rất tiện lợi!
+                </div>
+
+                <div id="python-runner-ch5-2"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-ch5-2').innerHTML = createPythonRunner(`# F-string
+ten = "Lan"
+tuoi = 10
+diem = 9.5
+
+# Dùng f-string
+cau = f"Tên: {ten}, Tuổi: {tuoi}, Điểm: {diem}"
+print(cau)`, 'python-runner-ch5-2');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
 
                 <h3>🛠️ Các Phương Thức Chuỗi</h3>
                 <ul>

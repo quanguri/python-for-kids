@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 Python Nâng Cao - Học Python Vui Vẻ</title>
+    <title>🚀 Python Nâng Cao - Game, Website & AI</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,15 +13,17 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <a href="index.html" class="nav-logo" style="text-decoration: none; color: inherit;">
                 <i class="fas fa-snake"></i>
-                <span>Học Python Vui Vẻ</span>
-            </div>
+                <span>🐍 Python Vui Vẻ</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="index.html">🏠 Trang Chủ</a></li>
-                <li><a href="basic.html">📚 Python Cơ Bản</a></li>
-                <li><a href="advanced.html" class="active">🚀 Python Nâng Cao</a></li>
+                <li><a href="basic.html">📚 Cơ Bản</a></li>
+                <li><a href="intermediate.html">📖 Trung Cấp</a></li>
+                <li><a href="advanced.html" class="active">🚀 Nâng Cao</a></li>
                 <li><a href="algorithms.html">🧮 Thuật Toán</a></li>
+                <li><a href="projects.html">🎮 Dự Án</a></li>
             </ul>
         </div>
     </nav>
@@ -31,629 +33,88 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <h3><i class="fas fa-list"></i> Mục Lục</h3>
+            
+            <h4 style="color: var(--primary-color); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1rem;">🎮 Phần Game</h4>
             <ul class="sidebar-menu">
-                <li><a href="#chapter6">Chương 6: Điều Kiện (if/else)</a></li>
-                <li><a href="#chapter7">Chương 7: Vòng Lặp (Loops)</a></li>
-                <li><a href="#chapter8">Chương 8: Danh Sách (Lists)</a></li>
-                <li><a href="#chapter9">Chương 9: Từ Điển (Dictionaries)</a></li>
-                <li><a href="#chapter10">Chương 10: Hàm (Functions)</a></li>
-                <li><a href="#chapter11">Chương 11: Xử Lý Lỗi</a></li>
-                <li><a href="#chapter12">Chương 12: Dự Án Tổng Hợp</a></li>
+                <li><a href="#game-lesson1" onclick="loadLesson('game-lesson1')">Bài 1: Giới thiệu lập trình Game</a></li>
+                <li><a href="#game-lesson2" onclick="loadLesson('game-lesson2')">Bài 2: Thư viện random</a></li>
+                <li><a href="#game-lesson3" onclick="loadLesson('game-lesson3')">Bài 3: Game loop và tương tác</a></li>
             </ul>
+            
+            <h4 style="color: var(--accent-color); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1rem;">🌐 Phần Website</h4>
+            <ul class="sidebar-menu">
+                <li><a href="#web-lesson1" onclick="loadLesson('web-lesson1')">Bài 1: HTML/CSS/JS cơ bản</a></li>
+                <li><a href="#web-lesson2" onclick="loadLesson('web-lesson2')">Bài 2: Tạo file với Python</a></li>
+                <li><a href="#web-lesson3" onclick="loadLesson('web-lesson3')">Bài 3: Template và tự động hóa</a></li>
+            </ul>
+            
+            <h4 style="color: #9c27b0; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1rem;">🤖 Phần AI</h4>
+            <ul class="sidebar-menu">
+                <li><a href="#ai-lesson1" onclick="loadLesson('ai-lesson1')">Bài 1: AI và ML là gì?</a></li>
+                <li><a href="#ai-lesson2" onclick="loadLesson('ai-lesson2')">Bài 2: Dữ liệu và xử lý</a></li>
+                <li><a href="#ai-lesson3" onclick="loadLesson('ai-lesson3')">Bài 3: Pattern Recognition</a></li>
+            </ul>
+            
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid var(--border-color);">
+                <a href="projects.html" class="btn btn-outline" style="width: 100%; text-align: center; display: block;">
+                    <i class="fas fa-gamepad"></i> Xem Dự Án Thực Tế →
+                </a>
+            </div>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="chapter" id="chapter6">
-                <div class="chapter-header">
-                    <div class="chapter-icon">🔀</div>
-                    <h2 class="chapter-title">Chương 6: Điều Kiện (if/else)</h2>
-                </div>
-                
-                <div class="chapter-intro">
-                    <p>Hôm nay chúng ta sẽ học cách "ra quyết định"! Giống như bạn quyết định mặc áo mưa nếu trời mưa, 
-                    Python cũng có thể quyết định làm gì dựa trên điều kiện! 🌧️☂️</p>
-                </div>
-
-                <h3>🤔 Câu lệnh if</h3>
-                <p>Nếu điều kiện đúng, thì làm việc này. Nếu sai, thì làm việc khác!</p>
-
-                <h3>📝 Ví dụ 1: Kiểm tra tuổi</h3>
-                <div class="code-example">
-                    <code>
-tuoi = <span class="function">int</span>(<span class="function">input</span>(<span class="string">"Bạn bao nhiêu tuổi? "</span>))<br>
-<br>
-<span class="keyword">if</span> tuoi >= <span class="number">18</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Bạn đã trưởng thành!"</span>)<br>
-<span class="keyword">else</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Bạn còn nhỏ tuổi!"</span>)
-                    </code>
-                </div>
-                <div class="code-explanation">
-                    <strong>Giải thích:</strong> <code>if</code> kiểm tra điều kiện. Nếu đúng, chạy khối lệnh sau <code>if</code>; 
-                    nếu sai, chạy khối sau <code>else</code>.
-                </div>
-
-                <div id="python-runner-adv-1"></div>
-                <script>
-                    (function() {
-                        function initRunner() {
-                            if (typeof createPythonRunner !== 'undefined') {
-                                document.getElementById('python-runner-adv-1').innerHTML = createPythonRunner(`# Kiểm tra tuổi (ví dụ)
-tuoi = 15  # Thay đổi số này để thử nghiệm
-
-if tuoi >= 18:
-    print("Bạn đã trưởng thành!")
-else:
-    print("Bạn còn nhỏ tuổi!")`, 'python-runner-adv-1');
-                            } else {
-                                setTimeout(initRunner, 100);
-                            }
-                        }
-                        if (document.readyState === 'loading') {
-                            document.addEventListener('DOMContentLoaded', initRunner);
-                        } else {
-                            initRunner();
-                        }
-                    })();
-                </script>
-
-                <h3>📝 Ví dụ 2: Phân loại điểm</h3>
-                <div class="code-example">
-                    <code>
-diem = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Nhập điểm của bạn: "</span>))<br>
-<br>
-<span class="keyword">if</span> diem >= <span class="number">9</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Xuất sắc!"</span>)<br>
-<span class="keyword">elif</span> diem >= <span class="number">8</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Giỏi!"</span>)<br>
-<span class="keyword">elif</span> diem >= <span class="number">7</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Khá!"</span>)<br>
-<span class="keyword">elif</span> diem >= <span class="number">5</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Trung bình!"</span>)<br>
-<span class="keyword">else</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Cần cố gắng thêm!"</span>)
-                    </code>
-                </div>
-                <div class="code-explanation">
-                    <strong>Giải thích:</strong> <code>elif</code> là "else if" - kiểm tra điều kiện khác nếu điều kiện trước sai. 
-                    Kiểm tra từ cao xuống thấp.
-                </div>
-
-                <div id="python-runner-adv-2"></div>
-                <script>
-                    (function() {
-                        function initRunner() {
-                            if (typeof createPythonRunner !== 'undefined') {
-                                document.getElementById('python-runner-adv-2').innerHTML = createPythonRunner(`# Phân loại điểm (ví dụ)
-diem = 8.5  # Thay đổi số này để thử nghiệm
-
-if diem >= 9:
-    print("Xuất sắc!")
-elif diem >= 8:
-    print("Giỏi!")
-elif diem >= 7:
-    print("Khá!")
-elif diem >= 5:
-    print("Trung bình!")
-else:
-    print("Cần cố gắng thêm!")`, 'python-runner-adv-2');
-                            } else {
-                                setTimeout(initRunner, 100);
-                            }
-                        }
-                        if (document.readyState === 'loading') {
-                            document.addEventListener('DOMContentLoaded', initRunner);
-                        } else {
-                            initRunner();
-                        }
-                    })();
-                </script>
-
-                <h3>🔍 Toán tử so sánh</h3>
-                <ul>
-                    <li><code>==</code> - Bằng nhau</li>
-                    <li><code>!=</code> - Khác nhau</li>
-                    <li><code>&lt;</code> - Nhỏ hơn</li>
-                    <li><code>&gt;</code> - Lớn hơn</li>
-                    <li><code>&lt;=</code> - Nhỏ hơn hoặc bằng</li>
-                    <li><code>&gt;=</code> - Lớn hơn hoặc bằng</li>
-                </ul>
-
-                <h3>🔗 Toán tử logic</h3>
-                <ul>
-                    <li><code>and</code> - Và (cả hai đều đúng)</li>
-                    <li><code>or</code> - Hoặc (một trong hai đúng)</li>
-                    <li><code>not</code> - Không (phủ định)</li>
-                </ul>
-
-                <div class="exercise">
-                    <h4>📚 Bài Tập Thực Hành</h4>
-                    <ol class="exercise-list">
-                        <li>Kiểm tra số chẵn hay lẻ</li>
-                        <li>Tính máy tính BMI và phân loại</li>
-                        <li>Kiểm tra năm nhuận (chia hết cho 4)</li>
-                    </ol>
-                </div>
-
-                <div class="summary">
-                    <h4>📌 Tóm Tắt Chương</h4>
-                    <ul>
-                        <li><code>if/else</code> dùng để ra quyết định dựa trên điều kiện</li>
-                        <li><code>elif</code> dùng để kiểm tra nhiều điều kiện</li>
-                        <li>Có các toán tử so sánh: ==, !=, &lt;, &gt;, &lt;=, &gt;=</li>
-                        <li>Có các toán tử logic: and, or, not</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="chapter" id="chapter7">
-                <div class="chapter-header">
-                    <div class="chapter-icon">🔄</div>
-                    <h2 class="chapter-title">Chương 7: Vòng Lặp (Loops)</h2>
-                </div>
-                
-                <div class="chapter-intro">
-                    <p>Vòng lặp giúp chúng ta làm một việc nhiều lần mà không cần viết lại code! 
-                    Giống như bạn đếm từ 1 đến 10, Python có thể làm điều đó tự động! 🔁</p>
-                </div>
-
-                <h3>🔄 Vòng lặp for</h3>
-                <p>Dùng <code>for</code> khi biết trước số lần lặp!</p>
-
-                <h3>📝 Ví dụ 1: Đếm số từ 1 đến 10</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Dùng for</span><br>
-<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="number">11</span>):  <span class="comment"># Từ 1 đến 10</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(i)
-                    </code>
-                </div>
-                <div class="code-explanation">
-                    <strong>Giải thích:</strong> <code>range(1, 11)</code> tạo dãy số từ 1 đến 10 (không bao gồm 11). 
-                    Vòng lặp <code>for</code> chạy qua từng số.
-                </div>
-
-                <h3>📝 Ví dụ 2: Bảng cửu chương</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Bảng cửu chương 5</span><br>
-so = <span class="number">5</span><br>
-<span class="function">print</span>(<span class="string">f"Bảng cửu chương {so}:"</span>)<br>
-<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="number">11</span>):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ket_qua = so * i<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"{so} x {i} = {ket_qua}"</span>)
-                    </code>
-                </div>
-
-                <h3>🔄 Vòng lặp while</h3>
-                <p>Dùng <code>while</code> khi không biết trước số lần lặp, chỉ biết điều kiện dừng!</p>
-
-                <h3>📝 Ví dụ 3: Đếm ngược</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Đếm ngược từ 10 về 1</span><br>
-dem = <span class="number">10</span><br>
-<span class="keyword">while</span> dem > <span class="number">0</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(dem)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;dem = dem - <span class="number">1</span>  <span class="comment"># Giảm đi 1</span><br>
-<span class="function">print</span>(<span class="string">"Hết giờ!"</span>)
-                    </code>
-                </div>
-                <div class="code-explanation">
-                    <strong>Giải thích:</strong> <code>while</code> lặp khi điều kiện còn đúng. Nhớ thay đổi biến để tránh lặp vô hạn!
-                </div>
-
-                <h3>⏸️ break và continue</h3>
-                <ul>
-                    <li><code>break</code> - Dừng hoàn toàn vòng lặp</li>
-                    <li><code>continue</code> - Bỏ qua lần lặp hiện tại</li>
-                </ul>
-
-                <div class="exercise">
-                    <h4>📚 Bài Tập Thực Hành</h4>
-                    <ol class="exercise-list">
-                        <li>In ra tất cả số chẵn từ 1 đến 20</li>
-                        <li>Tính tổng các số từ 1 đến 100</li>
-                        <li>Vẽ hình tam giác bằng dấu *</li>
-                    </ol>
-                </div>
-
-                <div class="summary">
-                    <h4>📌 Tóm Tắt Chương</h4>
-                    <ul>
-                        <li><code>for</code> dùng khi biết trước số lần lặp</li>
-                        <li><code>while</code> dùng khi chỉ biết điều kiện dừng</li>
-                        <li><code>break</code> dừng vòng lặp, <code>continue</code> bỏ qua lần lặp</li>
-                        <li>Vòng lặp giúp code ngắn gọn và mạnh mẽ</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="chapter" id="chapter8">
-                <div class="chapter-header">
-                    <div class="chapter-icon">📋</div>
-                    <h2 class="chapter-title">Chương 8: Danh Sách (Lists)</h2>
-                </div>
-                
-                <div class="chapter-intro">
-                    <p>Danh sách (list) giống như một chiếc hộp có nhiều ngăn! Mỗi ngăn chứa một món đồ, 
-                    và bạn có thể thêm, bớt, sửa các món đồ trong đó! 📦</p>
-                </div>
-
-                <h3>📋 Tạo danh sách</h3>
-                <p>Danh sách được tạo bằng dấu ngoặc vuông <code>[]</code></p>
-
-                <h3>📝 Ví dụ 1: Tạo và truy cập danh sách</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Tạo danh sách môn học</span><br>
-mon_hoc = [<span class="string">"Toán"</span>, <span class="string">"Văn"</span>, <span class="string">"Anh"</span>, <span class="string">"Lý"</span>, <span class="string">"Hóa"</span>]<br>
-<br>
-<span class="comment"># In danh sách</span><br>
-<span class="function">print</span>(<span class="string">"Danh sách môn học:"</span>, mon_hoc)<br>
-<br>
-<span class="comment"># Truy cập phần tử (bắt đầu từ 0)</span><br>
-<span class="function">print</span>(<span class="string">"Môn đầu tiên:"</span>, mon_hoc[<span class="number">0</span>])<br>
-<span class="function">print</span>(<span class="string">"Môn cuối cùng:"</span>, mon_hoc[-<span class="number">1</span>])  <span class="comment"># -1 là phần tử cuối</span>
-                    </code>
-                </div>
-                <div class="code-explanation">
-                    <strong>Giải thích:</strong> Danh sách dùng dấu ngoặc vuông <code>[]</code>. Chỉ số bắt đầu từ 0. <code>-1</code> là phần tử cuối.
-                </div>
-
-                <h3>➕ Thêm, xóa, sửa phần tử</h3>
-                <ul>
-                    <li><code>.append()</code> - Thêm vào cuối</li>
-                    <li><code>.remove()</code> - Xóa phần tử</li>
-                    <li><code>danh_sach[i] = giá_trị</code> - Sửa phần tử</li>
-                </ul>
-
-                <h3>📝 Ví dụ 2: Thêm và xóa</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Danh sách ban đầu</span><br>
-do_choi = [<span class="string">"Búp bê"</span>, <span class="string">"Xe hơi"</span>]<br>
-<br>
-<span class="comment"># Thêm phần tử</span><br>
-do_choi.append(<span class="string">"Máy bay"</span>)  <span class="comment"># Thêm vào cuối</span><br>
-<span class="function">print</span>(<span class="string">"Sau khi thêm:"</span>, do_choi)<br>
-<br>
-<span class="comment"># Xóa phần tử</span><br>
-do_choi.remove(<span class="string">"Xe hơi"</span>)<br>
-<span class="function">print</span>(<span class="string">"Sau khi xóa:"</span>, do_choi)
-                    </code>
-                </div>
-
-                <div class="exercise">
-                    <h4>📚 Bài Tập Thực Hành</h4>
-                    <ol class="exercise-list">
-                        <li>Tạo danh sách 5 số và tính tổng</li>
-                        <li>Tìm số lớn nhất và nhỏ nhất trong danh sách</li>
-                        <li>Đảo ngược thứ tự danh sách</li>
-                    </ol>
-                </div>
-
-                <div class="summary">
-                    <h4>📌 Tóm Tắt Chương</h4>
-                    <ul>
-                        <li>Danh sách dùng dấu ngoặc vuông <code>[]</code></li>
-                        <li>Chỉ số bắt đầu từ 0, <code>-1</code> là phần tử cuối</li>
-                        <li>Có thể thêm, xóa, sửa phần tử</li>
-                        <li>Có thể duyệt danh sách bằng vòng lặp</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="chapter" id="chapter9">
-                <div class="chapter-header">
-                    <div class="chapter-icon">📚</div>
-                    <h2 class="chapter-title">Chương 9: Từ Điển (Dictionaries)</h2>
-                </div>
-                
-                <div class="chapter-intro">
-                    <p>Từ điển (dictionary) giống như một cuốn từ điển thật! Mỗi từ có nghĩa của nó. 
-                    Trong Python, mỗi "key" (khóa) có "value" (giá trị) tương ứng! 📖</p>
-                </div>
-
-                <h3>📚 Tạo từ điển</h3>
-                <p>Từ điển được tạo bằng dấu ngoặc nhọn <code>{}</code></p>
-
-                <h3>📝 Ví dụ 1: Tạo từ điển</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Từ điển thông tin học sinh</span><br>
-hoc_sinh = {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"ten"</span>: <span class="string">"Minh"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"tuoi"</span>: <span class="number">10</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"lop"</span>: <span class="string">"5A"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"diem"</span>: <span class="number">9.5</span><br>
-}<br>
-<br>
-<span class="function">print</span>(<span class="string">"Thông tin học sinh:"</span>, hoc_sinh)<br>
-<span class="function">print</span>(<span class="string">"Tên:"</span>, hoc_sinh[<span class="string">"ten"</span>])<br>
-<span class="function">print</span>(<span class="string">"Tuổi:"</span>, hoc_sinh[<span class="string">"tuoi"</span>])
-                    </code>
-                </div>
-                <div class="code-explanation">
-                    <strong>Giải thích:</strong> Từ điển dùng dấu ngoặc nhọn <code>{}</code>, mỗi phần tử có key và value. 
-                    Truy cập bằng key.
-                </div>
-
-                <h3>📝 Ví dụ 2: Từ điển Anh-Việt</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Từ điển</span><br>
-tu_dien = {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"hello"</span>: <span class="string">"xin chào"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"goodbye"</span>: <span class="string">"tạm biệt"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"thank you"</span>: <span class="string">"cảm ơn"</span><br>
-}<br>
-<br>
-<span class="comment"># Tra từ</span><br>
-tu = <span class="function">input</span>(<span class="string">"Nhập từ tiếng Anh: "</span>).lower()<br>
-<span class="keyword">if</span> tu <span class="keyword">in</span> tu_dien:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"'{tu}' nghĩa là: {tu_dien[tu]}"</span>)<br>
-<span class="keyword">else</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Không tìm thấy từ này!"</span>)
-                    </code>
-                </div>
-
-                <div class="exercise">
-                    <h4>📚 Bài Tập Thực Hành</h4>
-                    <ol class="exercise-list">
-                        <li>Tạo từ điển lưu thông tin của bạn (tên, tuổi, lớp, sở thích)</li>
-                        <li>Tạo từ điển điểm các môn và tính điểm trung bình</li>
-                        <li>Tạo hệ thống đăng nhập đơn giản (username -> password)</li>
-                    </ol>
-                </div>
-
-                <div class="summary">
-                    <h4>📌 Tóm Tắt Chương</h4>
-                    <ul>
-                        <li>Từ điển dùng dấu ngoặc nhọn <code>{}</code></li>
-                        <li>Mỗi phần tử có key và value</li>
-                        <li>Truy cập bằng key: <code>tu_dien["key"]</code></li>
-                        <li>Rất hữu ích để lưu trữ dữ liệu có cấu trúc</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="chapter" id="chapter10">
-                <div class="chapter-header">
-                    <div class="chapter-icon">⚙️</div>
-                    <h2 class="chapter-title">Chương 10: Hàm (Functions)</h2>
-                </div>
-                
-                <div class="chapter-intro">
-                    <p>Hàm (function) giống như một công thức nấu ăn! Bạn viết một lần, sau đó có thể dùng lại nhiều lần. 
-                    Rất tiện lợi và giúp code gọn gàng hơn! 👨‍🍳</p>
-                </div>
-
-                <h3>⚙️ Tạo hàm</h3>
-                <p>Dùng từ khóa <code>def</code> để tạo hàm!</p>
-
-                <h3>📝 Ví dụ 1: Hàm đơn giản</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Tạo hàm chào hỏi</span><br>
-<span class="keyword">def</span> chao_hoi():<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Xin chào!"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Rất vui được gặp bạn!"</span>)<br>
-<br>
-<span class="comment"># Gọi hàm</span><br>
-chao_hoi()
-                    </code>
-                </div>
-                <div class="code-explanation">
-                    <strong>Giải thích:</strong> <code>def</code> tạo hàm. Hàm là một khối code có thể tái sử dụng.
-                </div>
-
-                <h3>📝 Ví dụ 2: Hàm có tham số</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Hàm chào hỏi có tên</span><br>
-<span class="keyword">def</span> chao_hoi(ten):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"Xin chào {ten}!"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Rất vui được gặp bạn!"</span>)<br>
-<br>
-<span class="comment"># Gọi hàm với đối số</span><br>
-chao_hoi(<span class="string">"Minh"</span>)<br>
-chao_hoi(<span class="string">"Lan"</span>)
-                    </code>
-                </div>
-
-                <h3>📝 Ví dụ 3: Hàm trả về giá trị</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Hàm tính tổng</span><br>
-<span class="keyword">def</span> tinh_tong(a, b):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ket_qua = a + b<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> ket_qua<br>
-<br>
-<span class="comment"># Sử dụng</span><br>
-tong = tinh_tong(<span class="number">5</span>, <span class="number">3</span>)<br>
-<span class="function">print</span>(<span class="string">"Tổng:"</span>, tong)
-                    </code>
-                </div>
-                <div class="code-explanation">
-                    <strong>Giải thích:</strong> <code>return</code> trả về giá trị. Giá trị này có thể lưu vào biến hoặc dùng trực tiếp.
-                </div>
-
-                <div class="exercise">
-                    <h4>📚 Bài Tập Thực Hành</h4>
-                    <ol class="exercise-list">
-                        <li>Tạo hàm kiểm tra số chẵn/lẻ</li>
-                        <li>Tạo hàm tính diện tích hình chữ nhật</li>
-                        <li>Tạo hàm tìm số lớn nhất trong 3 số</li>
-                    </ol>
-                </div>
-
-                <div class="summary">
-                    <h4>📌 Tóm Tắt Chương</h4>
-                    <ul>
-                        <li>Hàm dùng <code>def</code> để tạo</li>
-                        <li>Hàm có thể nhận tham số</li>
-                        <li>Hàm có thể trả về giá trị bằng <code>return</code></li>
-                        <li>Hàm giúp code gọn gàng và tái sử dụng được</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="chapter" id="chapter11">
-                <div class="chapter-header">
-                    <div class="chapter-icon">🛡️</div>
-                    <h2 class="chapter-title">Chương 11: Xử Lý Lỗi (Try/Except)</h2>
-                </div>
-                
-                <div class="chapter-intro">
-                    <p>Đôi khi chương trình gặp lỗi! Nhưng đừng lo, Python có cách xử lý lỗi rất thông minh! 
-                    Chúng ta sẽ học cách "bắt" lỗi và xử lý chúng một cách an toàn! 🛡️</p>
-                </div>
-
-                <h3>⚠️ Lỗi là gì?</h3>
-                <p>Lỗi xảy ra khi chương trình không thể chạy được, ví dụ: chia cho 0, nhập sai kiểu dữ liệu...</p>
-
-                <h3>📝 Ví dụ 1: Xử lý lỗi chia cho 0</h3>
-                <div class="code-example">
-                    <code>
-<span class="comment"># Máy tính an toàn</span><br>
-<span class="keyword">try</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;a = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Số thứ nhất: "</span>))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;b = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Số thứ hai: "</span>))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ket_qua = a / b<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"Kết quả: {ket_qua}"</span>)<br>
-<span class="keyword">except</span> ZeroDivisionError:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Lỗi: Không thể chia cho 0!"</span>)<br>
-<span class="keyword">except</span> ValueError:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Lỗi: Vui lòng nhập số!"</span>)
-                    </code>
-                </div>
-                <div class="code-explanation">
-                    <strong>Giải thích:</strong> <code>try</code> chạy code, nếu lỗi thì <code>except</code> bắt và xử lý. 
-                    <code>ZeroDivisionError</code> là lỗi chia cho 0.
-                </div>
-
-                <div class="summary">
-                    <h4>📌 Tóm Tắt Chương</h4>
-                    <ul>
-                        <li><code>try/except</code> dùng để xử lý lỗi</li>
-                        <li><code>try</code> chạy code, nếu lỗi thì <code>except</code> xử lý</li>
-                        <li>Có nhiều loại lỗi: ZeroDivisionError, ValueError...</li>
-                        <li>Xử lý lỗi giúp chương trình chạy ổn định hơn</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="chapter" id="chapter12">
-                <div class="chapter-header">
-                    <div class="chapter-icon">🎮</div>
-                    <h2 class="chapter-title">Chương 12: Dự Án Tổng Hợp</h2>
-                </div>
-                
-                <div class="chapter-intro">
-                    <p>Bây giờ chúng ta sẽ làm các dự án thú vị để áp dụng tất cả những gì đã học! 
-                    Hãy sáng tạo và vui vẻ! 🎉</p>
-                </div>
-
-                <h3>🎮 Dự án 1: Trò chơi đoán số nâng cao</h3>
-                <div class="code-example">
-                    <code>
-<span class="keyword">import</span> random<br>
-<br>
-<span class="keyword">def</span> tro_choi_doan_so():<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Tạo số ngẫu nhiên từ 1 đến 100</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;so_bi_mat = random.randint(<span class="number">1</span>, <span class="number">100</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;so_lan_doan = <span class="number">0</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;so_lan_toi_da = <span class="number">7</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"=== TRÒ CHƠI ĐOÁN SỐ ==="</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"Tôi đã nghĩ một số từ 1 đến 100"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"Bạn có {so_lan_toi_da} lần đoán!"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> so_lan_doan < so_lan_toi_da:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;so_doan = <span class="function">int</span>(<span class="function">input</span>(<span class="string">f"\nLần {so_lan_doan + 1}: Đoán số của bạn: "</span>))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;so_lan_doan += <span class="number">1</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> so_doan == so_bi_mat:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"🎉 Chúc mừng! Bạn đoán đúng sau {so_lan_doan} lần!"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">elif</span> so_doan < so_bi_mat:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Số bạn đoán nhỏ hơn!"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Số bạn đoán lớn hơn!"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> so_lan_doan < so_lan_toi_da:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"Còn {so_lan_toi_da - so_lan_doan} lần đoán!"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">except</span> ValueError:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Vui lòng nhập số!"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> so_lan_doan >= so_lan_toi_da <span class="keyword">and</span> so_doan != so_bi_mat:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"\nHết lượt! Số bí mật là: {so_bi_mat}"</span>)<br>
-<br>
-<span class="comment"># Chạy trò chơi</span><br>
-tro_choi_doan_so()
-                    </code>
-                </div>
-                <div class="code-explanation">
-                    <strong>Giải thích:</strong> Dùng <code>random.randint()</code> tạo số ngẫu nhiên. Giới hạn số lần đoán, có gợi ý lớn hơn/nhỏ hơn.
-                </div>
-
-                <h3>🧮 Dự án 2: Máy tính với menu</h3>
-                <div class="code-example">
-                    <code>
-<span class="keyword">def</span> may_tinh_menu():<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> <span class="keyword">True</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"\n=== MÁY TÍNH ==="</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"1. Cộng"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"2. Trừ"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"3. Nhân"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"4. Chia"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"5. Thoát"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lua_chon = <span class="function">input</span>(<span class="string">"Chọn (1-5): "</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> lua_chon == <span class="string">"5"</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Tạm biệt!"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> lua_chon <span class="keyword">in</span> [<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>, <span class="string">"4"</span>]:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Số thứ nhất: "</span>))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Số thứ hai: "</span>))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> lua_chon == <span class="string">"1"</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ket_qua = a + b<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"{a} + {b} = {ket_qua}"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">elif</span> lua_chon == <span class="string">"4"</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> b == <span class="number">0</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Lỗi: Không thể chia cho 0!"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ket_qua = a / b<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">f"{a} : {b} = {ket_qua}"</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">except</span> ValueError:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(<span class="string">"Lỗi: Vui lòng nhập số!"</span>)<br>
-<br>
-<span class="comment"># Chạy máy tính</span><br>
-may_tinh_menu()
-                    </code>
-                </div>
-
-                <div class="summary">
-                    <h4>📌 Tóm Tắt Khóa Học</h4>
-                    <p>Chúc mừng bạn đã hoàn thành khóa học Python! 🎉 Bạn đã học được:</p>
-                    <ul>
-                        <li>✅ Biến và kiểu dữ liệu</li>
-                        <li>✅ Nhập xuất dữ liệu</li>
-                        <li>✅ Toán học và phép tính</li>
-                        <li>✅ Xử lý chuỗi</li>
-                        <li>✅ Điều kiện và vòng lặp</li>
-                        <li>✅ Danh sách và từ điển</li>
-                        <li>✅ Hàm và xử lý lỗi</li>
-                        <li>✅ Làm dự án thực tế</li>
-                    </ul>
-                    <p>Hãy tiếp tục luyện tập và sáng tạo! Python có thể làm được rất nhiều điều thú vị! 🚀</p>
+            <div id="lesson-content">
+                <div class="chapter">
+                    <div class="chapter-header">
+                        <div class="chapter-icon">🚀</div>
+                        <h2 class="chapter-title">Python Nâng Cao - Game, Website & AI</h2>
+                    </div>
+                    <div class="chapter-intro">
+                        <p>Chào mừng đến với Python Nâng Cao! Ở đây bạn sẽ học cách tạo Game, Website và AI bằng Python!</p>
+                        <p>Hãy chọn một bài học từ menu bên trái để bắt đầu. Sau khi học xong, bạn có thể làm các dự án thực tế ở trang <a href="projects.html" style="color: var(--primary-color); font-weight: bold;">Dự Án</a>!</p>
+                    </div>
+                    
+                    <div class="course-grid" style="margin-top: 2rem;">
+                        <div class="course-card">
+                            <div class="course-header">
+                                <i class="fas fa-gamepad"></i>
+                                <h3>🎮 Phần Game</h3>
+                            </div>
+                            <ul class="course-list">
+                                <li>Giới thiệu lập trình game</li>
+                                <li>Thư viện random</li>
+                                <li>Game loop và tương tác</li>
+                            </ul>
+                            <a href="#game-lesson1" onclick="loadLesson('game-lesson1')" class="btn btn-outline">Bắt Đầu Học →</a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <i class="fas fa-globe"></i>
+                                <h3>🌐 Phần Website</h3>
+                            </div>
+                            <ul class="course-list">
+                                <li>HTML/CSS/JavaScript cơ bản</li>
+                                <li>Tạo file với Python</li>
+                                <li>Template và tự động hóa</li>
+                            </ul>
+                            <a href="#web-lesson1" onclick="loadLesson('web-lesson1')" class="btn btn-outline">Bắt Đầu Học →</a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <i class="fas fa-robot"></i>
+                                <h3>🤖 Phần AI</h3>
+                            </div>
+                            <ul class="course-list">
+                                <li>AI và Machine Learning</li>
+                                <li>Dữ liệu và xử lý</li>
+                                <li>Pattern Recognition</li>
+                            </ul>
+                            <a href="#ai-lesson1" onclick="loadLesson('ai-lesson1')" class="btn btn-outline">Bắt Đầu Học →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -669,6 +130,6 @@ may_tinh_menu()
 
     <script src="js/python-runner.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/advanced-lessons.js"></script>
 </body>
 </html>
-

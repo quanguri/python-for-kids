@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Dự Án Python - Game, Website & AI</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" style="text-decoration: none; color: inherit;">
+                <i class="fas fa-snake"></i>
+                <span>🐍 Python Vui Vẻ</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Trang Chủ</a></li>
+                <li><a href="basic.html">📚 Cơ Bản</a></li>
+                <li><a href="intermediate.html">📖 Trung Cấp</a></li>
+                <li><a href="advanced.html">🚀 Nâng Cao</a></li>
+                <li><a href="algorithms.html">🧮 Thuật Toán</a></li>
+                <li><a href="projects.html" class="active">🎮 Dự Án</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content Page -->
+    <div class="container content-page">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3><i class="fas fa-list"></i> Mục Lục</h3>
+            <ul class="sidebar-menu">
+                <li><a href="#game1" onclick="loadProject('game1')">🎮 Game 1: Đoán Số</a></li>
+                <li><a href="#game2" onclick="loadProject('game2')">🎮 Game 2: Kéo Búa Giấy</a></li>
+                <li><a href="#game3" onclick="loadProject('game3')">🎮 Game 3: Hangman</a></li>
+                <li><a href="#web1" onclick="loadProject('web1')">🌐 Website 1: Tạo HTML</a></li>
+                <li><a href="#web2" onclick="loadProject('web2')">🌐 Website 2: Form Đơn Giản</a></li>
+                <li><a href="#ai1" onclick="loadProject('ai1')">🤖 AI 1: Chatbot Đơn Giản</a></li>
+                <li><a href="#ai2" onclick="loadProject('ai2')">🤖 AI 2: Dự Đoán Số</a></li>
+                <li><a href="#ai3" onclick="loadProject('ai3')">🤖 AI 3: Phân Loại Dữ Liệu</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div id="project-content">
+                <!-- Nội dung dự án sẽ được load động -->
+                <div class="chapter">
+                    <div class="chapter-header">
+                        <div class="chapter-icon">🎮</div>
+                        <h2 class="chapter-title">Chào mừng đến với Dự Án Python!</h2>
+                    </div>
+                    <div class="chapter-intro">
+                        <p>Ở đây bạn sẽ học cách tạo Game, Website và AI bằng Python! Hãy chọn một dự án từ menu bên trái để bắt đầu.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>🐍 Made with ❤️ for Kids Learning Python</p>
+            <p>Học vui vẻ, sáng tạo và không ngừng khám phá!</p>
+        </div>
+    </footer>
+
+    <script src="js/python-runner.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>
+

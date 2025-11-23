@@ -46,9 +46,7 @@ async function initPyodide() {
         console.log('Pyodide đã sẵn sàng!');
         
         // Enable all run buttons
-        document.querySelectorAll('.run-button').forEach(btn => {
-            btn.disabled = false;
-        });
+        enableAllRunButtons();
         
     } catch (error) {
         console.error('Lỗi khi tải Pyodide:', error);
@@ -189,8 +187,18 @@ if (document.readyState === 'loading') {
     initPyodide();
 }
 
+// Enable all run buttons (useful when new runners are created dynamically)
+function enableAllRunButtons() {
+    if (isPyodideReady) {
+        document.querySelectorAll('.run-button').forEach(btn => {
+            btn.disabled = false;
+        });
+    }
+}
+
 // Make functions globally available
 window.runPythonCode = runPythonCode;
 window.clearPythonCode = clearPythonCode;
 window.createPythonRunner = createPythonRunner;
+window.enableAllRunButtons = enableAllRunButtons;
 
