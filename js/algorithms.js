@@ -1044,17 +1044,51 @@ function loadProblem(problemId) {
     const problem = problems[problemId];
     if (!problem) return;
     
-    // Cập nhật active state trong sidebar
-    document.querySelectorAll('.sidebar-menu a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(`loadProblem(${problemId})`)) {
+    // Cập nhật active state trong sidebar - tìm link theo data attribute hoặc href
+    const allLinks = document.querySelectorAll('.sidebar-menu a');
+    
+    // Remove active từ tất cả links trước
+    allLinks.forEach(l => l.classList.remove('active'));
+    
+    let foundMatch = false;
+    allLinks.forEach((link) => {
+        const dataProblemId = link.getAttribute('data-problem-id');
+        const href = link.getAttribute('href');
+        
+        // Kiểm tra data attribute hoặc href - đảm bảo so sánh đúng kiểu dữ liệu
+        const dataMatch = dataProblemId && (parseInt(dataProblemId) === parseInt(problemId) || dataProblemId === String(problemId));
+        const hrefMatch = href === `#problem${problemId}`;
+        
+        if (dataMatch || hrefMatch) {
+            // Add active cho link này
             link.classList.add('active');
+            foundMatch = true;
         }
     });
     
+    // Double check sau một chút và đảm bảo active được giữ
+    if (foundMatch) {
+        setTimeout(() => {
+            const activeLinks = document.querySelectorAll('.sidebar-menu a.active');
+            if (activeLinks.length === 0) {
+                // Tìm lại và set active
+                allLinks.forEach(link => {
+                    const dataProblemId = link.getAttribute('data-problem-id');
+                    const href = link.getAttribute('href');
+                    const dataMatch = dataProblemId && (parseInt(dataProblemId) === parseInt(problemId) || dataProblemId === String(problemId));
+                    const hrefMatch = href === `#problem${problemId}`;
+                    
+                    if (dataMatch || hrefMatch) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        }, 200);
+    }
+    
     // Tạo nội dung bài toán
     const problemContent = `
-        <div class="chapter">
+        <div class="chapter" id="problem${problemId}">
             <div class="chapter-header">
                 <div class="chapter-icon">🧮</div>
                 <h2 class="chapter-title">${problem.title}</h2>
@@ -1081,6 +1115,29 @@ function loadProblem(problemId) {
     `;
     
     document.getElementById('problem-content').innerHTML = problemContent;
+    
+    // Đảm bảo active state được giữ sau khi load content
+    setTimeout(() => {
+        // Re-apply active state sau khi DOM được update
+        const targetLink = Array.from(allLinks).find(link => {
+            const dataProblemId = link.getAttribute('data-problem-id');
+            const href = link.getAttribute('href');
+            const dataMatch = dataProblemId && (parseInt(dataProblemId) === parseInt(problemId) || dataProblemId === String(problemId));
+            const hrefMatch = href === `#problem${problemId}`;
+            return dataMatch || hrefMatch;
+        });
+        
+        if (targetLink) {
+            allLinks.forEach(l => l.classList.remove('active'));
+            targetLink.classList.add('active');
+        }
+        
+        // Auto-scroll đến phần được load
+        const chapter = document.getElementById(`problem${problemId}`);
+        if (chapter) {
+            chapter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, 50);
     
     // Khởi tạo Python runner
     setTimeout(() => {
@@ -1115,8 +1172,26 @@ function toggleSolution(problemId) {
     }
 }
 
-// Load bài toán đầu tiên khi trang load
+
+// Thêm event listener cho tất cả sidebar links khi DOM ready
 document.addEventListener('DOMContentLoaded', function() {
+    // Attach event listeners cho algorithms links
+    const links = document.querySelectorAll('.sidebar-menu a[data-problem-id]');
+    
+    links.forEach((link) => {
+        link.addEventListener('click', function(e) {
+            const clickedProblemId = this.getAttribute('data-problem-id');
+            
+            if (clickedProblemId) {
+                // Update active state ngay lập tức - trước khi loadProblem chạy
+                const allLinks = document.querySelectorAll('.sidebar-menu a');
+                allLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            }
+        }, true); // Use capture phase để chạy trước onclick handler
+    });
+    
+    // Load bài toán đầu tiên khi trang load
     loadProblem(1);
 });
 

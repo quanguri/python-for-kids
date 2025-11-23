@@ -602,17 +602,28 @@ function loadLesson(lessonId) {
     const lesson = advancedLessons[lessonId];
     if (!lesson) return;
     
-    // Cập nhật active state
-    document.querySelectorAll('.sidebar-menu a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(`loadLesson('${lessonId}')`)) {
+    // Cập nhật active state trong sidebar - tìm link theo data attribute hoặc href
+    const allLinks = document.querySelectorAll('.sidebar-menu a');
+    
+    // Remove active từ tất cả links trước
+    allLinks.forEach(l => l.classList.remove('active'));
+    
+    let foundMatch = false;
+    allLinks.forEach((link) => {
+        const dataLessonId = link.getAttribute('data-lesson-id');
+        const href = link.getAttribute('href');
+        
+        // Kiểm tra data attribute hoặc href
+        if (dataLessonId === lessonId || href === `#${lessonId}`) {
+            // Add active cho link này
             link.classList.add('active');
+            foundMatch = true;
         }
     });
     
     // Tạo nội dung bài học
     const lessonContent = `
-        <div class="chapter">
+        <div class="chapter" id="${lessonId}">
             <div class="chapter-header">
                 <div class="chapter-icon">${lesson.category === 'Game' ? '🎮' : lesson.category === 'Website' ? '🌐' : '🤖'}</div>
                 <h2 class="chapter-title">${lesson.title}</h2>
@@ -640,6 +651,27 @@ function loadLesson(lessonId) {
     
     document.getElementById('lesson-content').innerHTML = lessonContent;
     
+    // Đảm bảo active state được giữ sau khi load content
+    setTimeout(() => {
+        // Re-apply active state sau khi DOM được update
+        const targetLink = Array.from(allLinks).find(link => {
+            const dataLessonId = link.getAttribute('data-lesson-id');
+            const href = link.getAttribute('href');
+            return dataLessonId === lessonId || href === `#${lessonId}`;
+        });
+        
+        if (targetLink) {
+            allLinks.forEach(l => l.classList.remove('active'));
+            targetLink.classList.add('active');
+        }
+        
+        // Auto-scroll đến phần được load
+        const chapter = document.getElementById(lessonId);
+        if (chapter) {
+            chapter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, 50);
+    
     // Khởi tạo Python runner với retry mechanism
     (function() {
         let retryCount = 0;
@@ -651,7 +683,6 @@ function loadLesson(lessonId) {
             if (runnerContainer && typeof createPythonRunner !== 'undefined') {
                 try {
                     runnerContainer.innerHTML = createPythonRunner(lesson.initialCode, `python-runner-lesson-${lessonId}`);
-                    console.log(`Python runner đã được tạo cho bài học: ${lessonId}`);
                     
                     // Enable run button nếu Pyodide đã sẵn sàng
                     // Đợi một chút để đảm bảo DOM đã được render
@@ -663,7 +694,6 @@ function loadLesson(lessonId) {
                         }
                     }, 50);
                 } catch (error) {
-                    console.error('Lỗi khi tạo Python runner:', error);
                     if (retryCount < maxRetries) {
                         retryCount++;
                         setTimeout(initRunner, 100);
@@ -673,8 +703,6 @@ function loadLesson(lessonId) {
                 // Retry nếu createPythonRunner chưa sẵn sàng hoặc container chưa tồn tại
                 retryCount++;
                 setTimeout(initRunner, 100);
-            } else {
-                console.error('Không thể tạo Python runner sau nhiều lần thử');
             }
         }
         
@@ -682,6 +710,25 @@ function loadLesson(lessonId) {
         setTimeout(initRunner, 100);
     })();
 }
+
+// Thêm event listener cho tất cả sidebar links khi DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Attach event listeners cho advanced lessons links
+    const links = document.querySelectorAll('.sidebar-menu a[data-lesson-id]');
+    
+    links.forEach((link) => {
+        link.addEventListener('click', function(e) {
+            const clickedLessonId = this.getAttribute('data-lesson-id');
+            
+            if (clickedLessonId) {
+                // Update active state ngay lập tức - trước khi loadLesson chạy
+                const allLinks = document.querySelectorAll('.sidebar-menu a');
+                allLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            }
+        }, true); // Use capture phase để chạy trước onclick handler
+    });
+});
 
 // Toggle hiển thị giải thích
 function toggleSolution(lessonId) {
@@ -697,4 +744,5 @@ function toggleSolution(lessonId) {
         btn.innerHTML = '<i class="fas fa-eye"></i> Hiển thị giải thích';
     }
 }
+
 

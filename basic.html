@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📚 Python Cơ Bản - Học Python Vui Vẻ</title>
+    <meta name="description" content="Học Python cơ bản với 5 chương từ biến, kiểu dữ liệu đến xử lý chuỗi. Chạy code Python trực tiếp trên trình duyệt!">
+    <meta name="keywords" content="Python cơ bản, học Python, biến Python, kiểu dữ liệu Python, Python cho trẻ em">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="📚 Python Cơ Bản - Học Python Vui Vẻ">
+    <meta property="og:description" content="Học Python cơ bản với 5 chương bài học và Python Runner tích hợp">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://quanguri.github.io/python-for-kids/basic.html">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <!-- Pyodide will be loaded lazily when needed -->
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Python Cơ Bản",
+        "description": "Học Python cơ bản với 5 chương từ biến, kiểu dữ liệu đến xử lý chuỗi",
+        "provider": {
+            "@type": "Organization",
+            "name": "Học Python Vui Vẻ"
+        },
+        "educationalLevel": "Beginner",
+        "inLanguage": "vi"
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -17,7 +40,10 @@
                 <i class="fas fa-snake"></i>
                 <span>🐍 Python Vui Vẻ</span>
             </a>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">🏠 Trang Chủ</a></li>
                 <li><a href="basic.html" class="active">📚 Cơ Bản</a></li>
                 <li><a href="intermediate.html">📖 Trung Cấp</a></li>
@@ -25,11 +51,21 @@
                 <li><a href="algorithms.html">🧮 Thuật Toán</a></li>
                 <li><a href="projects.html">🎮 Dự Án</a></li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Content Page -->
     <div class="container content-page">
+        <!-- Floating Icons Decoration -->
+        <div class="page-decoration">
+            <div class="floating-icon">📚</div>
+            <div class="floating-icon">💡</div>
+            <div class="floating-icon">🐍</div>
+            <div class="floating-icon">✨</div>
+        </div>
         <!-- Sidebar -->
         <aside class="sidebar">
             <h3><i class="fas fa-list"></i> Mục Lục</h3>
@@ -88,6 +124,7 @@
                                 document.getElementById('python-runner-1').innerHTML = createPythonRunner(`# In ra lời chào
 print("Xin chào! Tôi là Python!")
 print("Rất vui được gặp bạn!")`, 'python-runner-1');
+                                // Listeners will be attached automatically by createPythonRunner wrapper
                             } else {
                                 setTimeout(initRunner, 100);
                             }
@@ -711,6 +748,11 @@ print(cau)`, 'python-runner-ch5-2');
         </div>
     </footer>
 
+    <script src="js/dark-mode.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/scroll-to-top.js"></script>
+    <script src="js/color-picker.js"></script>
     <script src="js/python-runner.js"></script>
     <script src="js/script.js"></script>
 </body>

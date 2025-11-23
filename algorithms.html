@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🧮 Thuật Toán - Học Python Vui Vẻ</title>
+    <meta name="description" content="Luyện tập thuật toán với 15 bài toán từ cơ bản đến nâng cao. Giải bài toán Python trực tiếp trên trình duyệt!">
+    <meta name="keywords" content="thuật toán Python, giải bài toán Python, sắp xếp Python, tìm kiếm Python, đệ quy Python">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="🧮 Thuật Toán - Học Python Vui Vẻ">
+    <meta property="og:description" content="15 bài toán thuật toán Python từ cơ bản đến nâng cao">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://quanguri.github.io/python-for-kids/algorithms.html">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <!-- Pyodide will be loaded lazily when needed -->
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Thuật Toán Python",
+        "description": "Luyện tập thuật toán với 15 bài toán từ cơ bản đến nâng cao",
+        "provider": {
+            "@type": "Organization",
+            "name": "Học Python Vui Vẻ"
+        },
+        "educationalLevel": "Intermediate",
+        "inLanguage": "vi"
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -17,7 +40,10 @@
                 <i class="fas fa-snake"></i>
                 <span>🐍 Python Vui Vẻ</span>
             </a>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">🏠 Trang Chủ</a></li>
                 <li><a href="basic.html">📚 Cơ Bản</a></li>
                 <li><a href="intermediate.html">📖 Trung Cấp</a></li>
@@ -25,30 +51,40 @@
                 <li><a href="algorithms.html" class="active">🧮 Thuật Toán</a></li>
                 <li><a href="projects.html">🎮 Dự Án</a></li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Content Page -->
     <div class="container content-page">
+        <!-- Floating Icons Decoration -->
+        <div class="page-decoration">
+            <div class="floating-icon">🧮</div>
+            <div class="floating-icon">🔢</div>
+            <div class="floating-icon">💡</div>
+            <div class="floating-icon">🎯</div>
+        </div>
         <!-- Sidebar - Danh sách bài toán -->
         <aside class="sidebar">
             <h3><i class="fas fa-list"></i> Mục Lục</h3>
             <ul class="sidebar-menu" id="problem-list">
-                <li><a href="#problem1" class="active" onclick="loadProblem(1)">Bài 1: Tính tổng từ 1 đến n</a></li>
-                <li><a href="#problem2" onclick="loadProblem(2)">Bài 2: Kiểm tra số nguyên tố</a></li>
-                <li><a href="#problem3" onclick="loadProblem(3)">Bài 3: Tìm số lớn nhất</a></li>
-                <li><a href="#problem4" onclick="loadProblem(4)">Bài 4: Đảo ngược chuỗi</a></li>
-                <li><a href="#problem5" onclick="loadProblem(5)">Bài 5: Tính giai thừa</a></li>
-                <li><a href="#problem6" onclick="loadProblem(6)">Bài 6: Kiểm tra số hoàn hảo</a></li>
-                <li><a href="#problem7" onclick="loadProblem(7)">Bài 7: Tìm ước chung lớn nhất</a></li>
-                <li><a href="#problem8" onclick="loadProblem(8)">Bài 8: In tam giác số</a></li>
-                <li><a href="#problem9" onclick="loadProblem(9)">Bài 9: Tìm số nhỏ nhất</a></li>
-                <li><a href="#problem10" onclick="loadProblem(10)">Bài 10: Đếm số chẵn và số lẻ</a></li>
-                <li><a href="#problem11" onclick="loadProblem(11)">Bài 11: Kiểm tra số đối xứng</a></li>
-                <li><a href="#problem12" onclick="loadProblem(12)">Bài 12: Tính trung bình cộng</a></li>
-                <li><a href="#problem13" onclick="loadProblem(13)">Bài 13: Tìm số Fibonacci</a></li>
-                <li><a href="#problem14" onclick="loadProblem(14)">Bài 14: Kiểm tra năm nhuận</a></li>
-                <li><a href="#problem15" onclick="loadProblem(15)">Bài 15: Đếm số từ trong chuỗi</a></li>
+                <li><a href="#problem1" data-problem-id="1" class="active" onclick="loadProblem(1); return false;">Bài 1: Tính tổng từ 1 đến n</a></li>
+                <li><a href="#problem2" data-problem-id="2" onclick="loadProblem(2); return false;">Bài 2: Kiểm tra số nguyên tố</a></li>
+                <li><a href="#problem3" data-problem-id="3" onclick="loadProblem(3); return false;">Bài 3: Tìm số lớn nhất</a></li>
+                <li><a href="#problem4" data-problem-id="4" onclick="loadProblem(4); return false;">Bài 4: Đảo ngược chuỗi</a></li>
+                <li><a href="#problem5" data-problem-id="5" onclick="loadProblem(5); return false;">Bài 5: Tính giai thừa</a></li>
+                <li><a href="#problem6" data-problem-id="6" onclick="loadProblem(6); return false;">Bài 6: Kiểm tra số hoàn hảo</a></li>
+                <li><a href="#problem7" data-problem-id="7" onclick="loadProblem(7); return false;">Bài 7: Tìm ước chung lớn nhất</a></li>
+                <li><a href="#problem8" data-problem-id="8" onclick="loadProblem(8); return false;">Bài 8: In tam giác số</a></li>
+                <li><a href="#problem9" data-problem-id="9" onclick="loadProblem(9); return false;">Bài 9: Tìm số nhỏ nhất</a></li>
+                <li><a href="#problem10" data-problem-id="10" onclick="loadProblem(10); return false;">Bài 10: Đếm số chẵn và số lẻ</a></li>
+                <li><a href="#problem11" data-problem-id="11" onclick="loadProblem(11); return false;">Bài 11: Kiểm tra số đối xứng</a></li>
+                <li><a href="#problem12" data-problem-id="12" onclick="loadProblem(12); return false;">Bài 12: Tính trung bình cộng</a></li>
+                <li><a href="#problem13" data-problem-id="13" onclick="loadProblem(13); return false;">Bài 13: Tìm số Fibonacci</a></li>
+                <li><a href="#problem14" data-problem-id="14" onclick="loadProblem(14); return false;">Bài 14: Kiểm tra năm nhuận</a></li>
+                <li><a href="#problem15" data-problem-id="15" onclick="loadProblem(15); return false;">Bài 15: Đếm số từ trong chuỗi</a></li>
             </ul>
         </aside>
 
@@ -68,6 +104,11 @@
         </div>
     </footer>
 
+    <script src="js/dark-mode.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/scroll-to-top.js"></script>
+    <script src="js/color-picker.js"></script>
     <script src="js/python-runner.js"></script>
     <script src="js/script.js"></script>
     <script src="js/algorithms.js"></script>

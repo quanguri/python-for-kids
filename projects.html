@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎮 Dự Án Python - Game, Website & AI</title>
+    <meta name="description" content="8 dự án Python thực tế: Game, Website và AI. Học bằng cách làm với code mẫu và giải thích chi tiết!">
+    <meta name="keywords" content="dự án Python, game Python, website Python, AI Python, project Python">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="🎮 Dự Án Python - Game, Website & AI">
+    <meta property="og:description" content="8 dự án Python thực tế với code mẫu và giải thích chi tiết">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://quanguri.github.io/python-for-kids/projects.html">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <!-- Pyodide will be loaded lazily when needed -->
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Dự Án Python - Game, Website & AI",
+        "description": "8 dự án Python thực tế: Game, Website và AI với code mẫu và giải thích chi tiết",
+        "provider": {
+            "@type": "Organization",
+            "name": "Học Python Vui Vẻ"
+        },
+        "educationalLevel": "Advanced",
+        "inLanguage": "vi"
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -17,7 +40,10 @@
                 <i class="fas fa-snake"></i>
                 <span>🐍 Python Vui Vẻ</span>
             </a>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">🏠 Trang Chủ</a></li>
                 <li><a href="basic.html">📚 Cơ Bản</a></li>
                 <li><a href="intermediate.html">📖 Trung Cấp</a></li>
@@ -25,23 +51,33 @@
                 <li><a href="algorithms.html">🧮 Thuật Toán</a></li>
                 <li><a href="projects.html" class="active">🎮 Dự Án</a></li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Content Page -->
     <div class="container content-page">
+        <!-- Floating Icons Decoration -->
+        <div class="page-decoration">
+            <div class="floating-icon">🎮</div>
+            <div class="floating-icon">🌐</div>
+            <div class="floating-icon">🤖</div>
+            <div class="floating-icon">🎨</div>
+        </div>
         <!-- Sidebar -->
         <aside class="sidebar">
             <h3><i class="fas fa-list"></i> Mục Lục</h3>
             <ul class="sidebar-menu">
-                <li><a href="#game1" onclick="loadProject('game1')">🎮 Game 1: Đoán Số</a></li>
-                <li><a href="#game2" onclick="loadProject('game2')">🎮 Game 2: Kéo Búa Giấy</a></li>
-                <li><a href="#game3" onclick="loadProject('game3')">🎮 Game 3: Hangman</a></li>
-                <li><a href="#web1" onclick="loadProject('web1')">🌐 Website 1: Tạo HTML</a></li>
-                <li><a href="#web2" onclick="loadProject('web2')">🌐 Website 2: Form Đơn Giản</a></li>
-                <li><a href="#ai1" onclick="loadProject('ai1')">🤖 AI 1: Chatbot Đơn Giản</a></li>
-                <li><a href="#ai2" onclick="loadProject('ai2')">🤖 AI 2: Dự Đoán Số</a></li>
-                <li><a href="#ai3" onclick="loadProject('ai3')">🤖 AI 3: Phân Loại Dữ Liệu</a></li>
+                <li><a href="#game1" data-project-id="game1" onclick="loadProject('game1'); return false;">Game 1: Đoán Số</a></li>
+                <li><a href="#game2" data-project-id="game2" onclick="loadProject('game2'); return false;">Game 2: Kéo Búa Giấy</a></li>
+                <li><a href="#game3" data-project-id="game3" onclick="loadProject('game3'); return false;">Game 3: Hangman</a></li>
+                <li><a href="#web1" data-project-id="web1" onclick="loadProject('web1'); return false;">Website 1: Tạo HTML</a></li>
+                <li><a href="#web2" data-project-id="web2" onclick="loadProject('web2'); return false;">Website 2: Form Đơn Giản</a></li>
+                <li><a href="#ai1" data-project-id="ai1" onclick="loadProject('ai1'); return false;">AI 1: Chatbot Đơn Giản</a></li>
+                <li><a href="#ai2" data-project-id="ai2" onclick="loadProject('ai2'); return false;">AI 2: Dự Đoán Số</a></li>
+                <li><a href="#ai3" data-project-id="ai3" onclick="loadProject('ai3'); return false;">AI 3: Phân Loại Dữ Liệu</a></li>
             </ul>
         </aside>
 
@@ -70,6 +106,11 @@
         </div>
     </footer>
 
+    <script src="js/dark-mode.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/scroll-to-top.js"></script>
+    <script src="js/color-picker.js"></script>
     <script src="js/python-runner.js"></script>
     <script src="js/script.js"></script>
     <script src="js/projects.js"></script>

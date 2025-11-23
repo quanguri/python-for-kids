@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🚀 Python Nâng Cao - Game, Website & AI</title>
+    <meta name="description" content="Học Python nâng cao: lập trình Game, tạo Website và AI với Python. 9 bài học thực hành với Python Runner tích hợp!">
+    <meta name="keywords" content="Python game, Python website, Python AI, machine learning Python, lập trình game Python">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="🚀 Python Nâng Cao - Game, Website & AI">
+    <meta property="og:description" content="Học Python nâng cao với Game, Website và AI - 9 bài học thực hành">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://quanguri.github.io/python-for-kids/advanced.html">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <!-- Pyodide will be loaded lazily when needed -->
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Python Nâng Cao - Game, Website & AI",
+        "description": "Học Python nâng cao: lập trình Game, tạo Website và AI với Python",
+        "provider": {
+            "@type": "Organization",
+            "name": "Học Python Vui Vẻ"
+        },
+        "educationalLevel": "Advanced",
+        "inLanguage": "vi"
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -17,7 +40,10 @@
                 <i class="fas fa-snake"></i>
                 <span>🐍 Python Vui Vẻ</span>
             </a>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">🏠 Trang Chủ</a></li>
                 <li><a href="basic.html">📚 Cơ Bản</a></li>
                 <li><a href="intermediate.html">📖 Trung Cấp</a></li>
@@ -25,39 +51,49 @@
                 <li><a href="algorithms.html">🧮 Thuật Toán</a></li>
                 <li><a href="projects.html">🎮 Dự Án</a></li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Content Page -->
     <div class="container content-page">
+        <!-- Floating Icons Decoration -->
+        <div class="page-decoration">
+            <div class="floating-icon">🎮</div>
+            <div class="floating-icon">🌐</div>
+            <div class="floating-icon">🤖</div>
+            <div class="floating-icon">⚡</div>
+        </div>
         <!-- Sidebar -->
         <aside class="sidebar">
             <h3><i class="fas fa-list"></i> Mục Lục</h3>
             
             <h4 style="color: var(--primary-color); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1rem;">🎮 Phần Game</h4>
             <ul class="sidebar-menu">
-                <li><a href="#game-lesson1" onclick="loadLesson('game-lesson1')">Bài 1: Giới thiệu lập trình Game</a></li>
-                <li><a href="#game-lesson2" onclick="loadLesson('game-lesson2')">Bài 2: Thư viện random</a></li>
-                <li><a href="#game-lesson3" onclick="loadLesson('game-lesson3')">Bài 3: Game loop và tương tác</a></li>
+                <li><a href="#game-lesson1" data-lesson-id="game-lesson1" onclick="loadLesson('game-lesson1'); return false;">Bài 1: Giới thiệu lập trình Game</a></li>
+                <li><a href="#game-lesson2" data-lesson-id="game-lesson2" onclick="loadLesson('game-lesson2'); return false;">Bài 2: Thư viện random</a></li>
+                <li><a href="#game-lesson3" data-lesson-id="game-lesson3" onclick="loadLesson('game-lesson3'); return false;">Bài 3: Game loop và tương tác</a></li>
             </ul>
             
             <h4 style="color: var(--accent-color); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1rem;">🌐 Phần Website</h4>
             <ul class="sidebar-menu">
-                <li><a href="#web-lesson1" onclick="loadLesson('web-lesson1')">Bài 1: HTML/CSS/JS cơ bản</a></li>
-                <li><a href="#web-lesson2" onclick="loadLesson('web-lesson2')">Bài 2: Tạo file với Python</a></li>
-                <li><a href="#web-lesson3" onclick="loadLesson('web-lesson3')">Bài 3: Template và tự động hóa</a></li>
+                <li><a href="#web-lesson1" data-lesson-id="web-lesson1" onclick="loadLesson('web-lesson1'); return false;">Bài 1: HTML/CSS/JS cơ bản</a></li>
+                <li><a href="#web-lesson2" data-lesson-id="web-lesson2" onclick="loadLesson('web-lesson2'); return false;">Bài 2: Tạo file với Python</a></li>
+                <li><a href="#web-lesson3" data-lesson-id="web-lesson3" onclick="loadLesson('web-lesson3'); return false;">Bài 3: Template và tự động hóa</a></li>
             </ul>
             
             <h4 style="color: #9c27b0; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1rem;">🤖 Phần AI</h4>
             <ul class="sidebar-menu">
-                <li><a href="#ai-lesson1" onclick="loadLesson('ai-lesson1')">Bài 1: AI và ML là gì?</a></li>
-                <li><a href="#ai-lesson2" onclick="loadLesson('ai-lesson2')">Bài 2: Dữ liệu và xử lý</a></li>
-                <li><a href="#ai-lesson3" onclick="loadLesson('ai-lesson3')">Bài 3: Pattern Recognition</a></li>
+                <li><a href="#ai-lesson1" data-lesson-id="ai-lesson1" onclick="loadLesson('ai-lesson1'); return false;">Bài 1: AI và ML là gì?</a></li>
+                <li><a href="#ai-lesson2" data-lesson-id="ai-lesson2" onclick="loadLesson('ai-lesson2'); return false;">Bài 2: Dữ liệu và xử lý</a></li>
+                <li><a href="#ai-lesson3" data-lesson-id="ai-lesson3" onclick="loadLesson('ai-lesson3'); return false;">Bài 3: Pattern Recognition</a></li>
             </ul>
             
-            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid var(--border-color);">
-                <a href="projects.html" class="btn btn-outline" style="width: 100%; text-align: center; display: block;">
-                    <i class="fas fa-gamepad"></i> Xem Dự Án Thực Tế →
+            <div class="sidebar-cta">
+                <a href="projects.html" class="btn btn-outline">
+                    <i class="fas fa-gamepad"></i> Xem Dự Án →
                 </a>
             </div>
         </aside>
@@ -79,7 +115,7 @@
                         <div class="course-card">
                             <div class="course-header">
                                 <i class="fas fa-gamepad"></i>
-                                <h3>🎮 Phần Game</h3>
+                                <h3>Phần Game</h3>
                             </div>
                             <ul class="course-list">
                                 <li>Giới thiệu lập trình game</li>
@@ -92,7 +128,7 @@
                         <div class="course-card">
                             <div class="course-header">
                                 <i class="fas fa-globe"></i>
-                                <h3>🌐 Phần Website</h3>
+                                <h3>Phần Website</h3>
                             </div>
                             <ul class="course-list">
                                 <li>HTML/CSS/JavaScript cơ bản</li>
@@ -105,7 +141,7 @@
                         <div class="course-card">
                             <div class="course-header">
                                 <i class="fas fa-robot"></i>
-                                <h3>🤖 Phần AI</h3>
+                                <h3>Phần AI</h3>
                             </div>
                             <ul class="course-list">
                                 <li>AI và Machine Learning</li>
@@ -128,6 +164,11 @@
         </div>
     </footer>
 
+    <script src="js/dark-mode.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/scroll-to-top.js"></script>
+    <script src="js/color-picker.js"></script>
     <script src="js/python-runner.js"></script>
     <script src="js/script.js"></script>
     <script src="js/advanced-lessons.js"></script>

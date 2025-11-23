@@ -4,11 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🐍 Học Python Vui Vẻ - Dành cho Trẻ Em</title>
+    <meta name="description" content="Website học Python từ cơ bản đến nâng cao cho trẻ em. Chạy Python trực tiếp trên trình duyệt với Python Runner tích hợp. Học lập trình vui vẻ và dễ hiểu!">
+    <meta name="keywords" content="Python, học Python, lập trình cho trẻ em, Python cơ bản, Python nâng cao, Python runner, Pyodide, học lập trình online">
+    <meta name="author" content="Python for Kids">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quanguri.github.io/python-for-kids/">
+    <meta property="og:title" content="🐍 Học Python Vui Vẻ - Dành cho Trẻ Em">
+    <meta property="og:description" content="Website học Python từ cơ bản đến nâng cao cho trẻ em. Chạy Python trực tiếp trên trình duyệt!">
+    <meta property="og:image" content="https://quanguri.github.io/python-for-kids/favicon.svg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://quanguri.github.io/python-for-kids/">
+    <meta property="twitter:title" content="🐍 Học Python Vui Vẻ - Dành cho Trẻ Em">
+    <meta property="twitter:description" content="Website học Python từ cơ bản đến nâng cao cho trẻ em. Chạy Python trực tiếp trên trình duyệt!">
+    
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://quanguri.github.io/python-for-kids/">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Học Python Vui Vẻ",
+        "description": "Website học Python từ cơ bản đến nâng cao cho trẻ em",
+        "url": "https://quanguri.github.io/python-for-kids/",
+        "educationalCredentialAwarded": "Python Programming Certificate",
+        "audience": {
+            "@type": "EducationalAudience",
+            "educationalRole": "student",
+            "audienceType": "children"
+        },
+        "course": [
+            {
+                "@type": "Course",
+                "name": "Python Cơ Bản",
+                "description": "Học Python từ cơ bản với 5 chương bài học"
+            },
+            {
+                "@type": "Course",
+                "name": "Python Trung Cấp",
+                "description": "Nâng cao kỹ năng Python với 7 chương bài học"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Bỏ qua đến nội dung chính</a>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -16,7 +66,10 @@
                 <i class="fas fa-snake"></i>
                 <span>🐍 Python Vui Vẻ</span>
             </a>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html" class="active">🏠 Trang Chủ</a></li>
                 <li><a href="basic.html">📚 Cơ Bản</a></li>
                 <li><a href="intermediate.html">📖 Trung Cấp</a></li>
@@ -24,11 +77,14 @@
                 <li><a href="algorithms.html">🧮 Thuật Toán</a></li>
                 <li><a href="projects.html">🎮 Dự Án</a></li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="main-content">
         <div class="hero-content">
             <div class="hero-icon">🐍</div>
             <h1>Chào mừng đến với Thế Giới Python!</h1>
@@ -160,6 +216,11 @@
         </div>
     </footer>
 
+    <script src="js/dark-mode.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/scroll-to-top.js"></script>
+    <script src="js/color-picker.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

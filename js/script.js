@@ -19,27 +19,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Highlight active section in sidebar while scrolling
-const sections = document.querySelectorAll('.chapter');
-const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+// Chỉ chạy cho các trang có nhiều sections cố định (như basic.html, intermediate.html)
+// Không chạy cho các trang load động (algorithms, advanced, projects)
+const shouldUseScrollListener = !window.location.pathname.includes('algorithms.html') && 
+                                 !window.location.pathname.includes('advanced.html') && 
+                                 !window.location.pathname.includes('projects.html');
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
+const sections = document.querySelectorAll('.chapter');
+
+if (shouldUseScrollListener) {
+    const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+
+    // Set active cho bài học đầu tiên khi trang load
+    if (sidebarLinks.length > 0) {
+        // Kiểm tra xem đã có link nào active chưa
+        const hasActive = Array.from(sidebarLinks).some(link => link.classList.contains('active'));
+        if (!hasActive) {
+            // Set active cho link đầu tiên
+            sidebarLinks[0].classList.add('active');
+        }
+    }
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        sidebarLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Nếu không có section nào được highlight (ở đầu trang), giữ active cho link đầu tiên
+        if (!current && sidebarLinks.length > 0) {
+            sidebarLinks[0].classList.add('active');
         }
     });
-    
-    sidebarLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
+}
 
 // Add copy button to code blocks
 document.querySelectorAll('.code-example').forEach(codeBlock => {
@@ -49,7 +73,7 @@ document.querySelectorAll('.code-example').forEach(codeBlock => {
     copyButton.style.cssText = `
         position: absolute;
         top: 10px;
-        right: 50px;
+        right: 100px;
         background: #4CAF50;
         color: white;
         border: none;
@@ -59,6 +83,7 @@ document.querySelectorAll('.code-example').forEach(codeBlock => {
         font-size: 0.8rem;
         opacity: 0.8;
         transition: opacity 0.3s;
+        z-index: 2;
     `;
     
     copyButton.addEventListener('mouseenter', () => {
@@ -123,7 +148,9 @@ document.querySelectorAll('.feature-card, .course-card').forEach(card => {
     });
 });
 
-// Console welcome message
-console.log('%c🐍 Chào mừng đến với Học Python Vui Vẻ!', 'color: #4CAF50; font-size: 20px; font-weight: bold;');
-console.log('%cBạn đang học Python - một ngôn ngữ lập trình tuyệt vời!', 'color: #2196F3; font-size: 14px;');
+// Console welcome message (only in development)
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    console.log('%c🐍 Chào mừng đến với Học Python Vui Vẻ!', 'color: #4CAF50; font-size: 20px; font-weight: bold;');
+    console.log('%cBạn đang học Python - một ngôn ngữ lập trình tuyệt vời!', 'color: #2196F3; font-size: 14px;');
+}
 

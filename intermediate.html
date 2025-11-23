@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📖 Python Trung Cấp - Học Python Vui Vẻ</title>
+    <meta name="description" content="Học Python trung cấp với 7 chương: điều kiện, vòng lặp, danh sách, từ điển, hàm và xử lý lỗi. Chạy code Python trực tiếp trên trình duyệt!">
+    <meta name="keywords" content="Python trung cấp, vòng lặp Python, hàm Python, danh sách Python, từ điển Python">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="📖 Python Trung Cấp - Học Python Vui Vẻ">
+    <meta property="og:description" content="Học Python trung cấp với 7 chương bài học và Python Runner tích hợp">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://quanguri.github.io/python-for-kids/intermediate.html">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <!-- Pyodide will be loaded lazily when needed -->
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Python Trung Cấp",
+        "description": "Học Python trung cấp với 7 chương: điều kiện, vòng lặp, danh sách, từ điển, hàm và xử lý lỗi",
+        "provider": {
+            "@type": "Organization",
+            "name": "Học Python Vui Vẻ"
+        },
+        "educationalLevel": "Intermediate",
+        "inLanguage": "vi"
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -17,7 +40,10 @@
                 <i class="fas fa-snake"></i>
                 <span>🐍 Python Vui Vẻ</span>
             </a>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">🏠 Trang Chủ</a></li>
                 <li><a href="basic.html">📚 Cơ Bản</a></li>
                 <li><a href="intermediate.html" class="active">📖 Trung Cấp</a></li>
@@ -25,11 +51,21 @@
                 <li><a href="algorithms.html">🧮 Thuật Toán</a></li>
                 <li><a href="projects.html">🎮 Dự Án</a></li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Content Page -->
     <div class="container content-page">
+        <!-- Floating Icons Decoration -->
+        <div class="page-decoration">
+            <div class="floating-icon">📖</div>
+            <div class="floating-icon">🔧</div>
+            <div class="floating-icon">💻</div>
+            <div class="floating-icon">🚀</div>
+        </div>
         <!-- Sidebar -->
         <aside class="sidebar">
             <h3><i class="fas fa-list"></i> Mục Lục</h3>
@@ -955,6 +991,11 @@ may_tinh_menu()
         </div>
     </footer>
 
+    <script src="js/dark-mode.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/scroll-to-top.js"></script>
+    <script src="js/color-picker.js"></script>
     <script src="js/python-runner.js"></script>
     <script src="js/script.js"></script>
 </body>

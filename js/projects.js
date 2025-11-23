@@ -829,20 +829,41 @@ function loadProject(projectId) {
     const project = projects[projectId];
     if (!project) return;
     
-    // Cập nhật active state trong sidebar
-    document.querySelectorAll('.sidebar-menu a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(`loadProject('${projectId}')`)) {
+    // Cập nhật active state trong sidebar - tìm link theo data attribute hoặc href
+    const allLinks = document.querySelectorAll('.sidebar-menu a');
+    
+    // Remove active từ tất cả links trước
+    allLinks.forEach(l => l.classList.remove('active'));
+    
+    let foundMatch = false;
+    allLinks.forEach((link) => {
+        const dataProjectId = link.getAttribute('data-project-id');
+        const href = link.getAttribute('href');
+        
+        // Kiểm tra data attribute hoặc href
+        if (dataProjectId === projectId || href === `#${projectId}`) {
+            // Add active cho link này
             link.classList.add('active');
+            foundMatch = true;
         }
     });
     
     // Tạo nội dung dự án
+    // Loại bỏ icon emoji khỏi title vì đã có chapter-icon
+    let titleWithoutIcon = project.title;
+    // Loại bỏ các icon emoji ở đầu title
+    if (titleWithoutIcon.startsWith('🎮')) {
+        titleWithoutIcon = titleWithoutIcon.replace(/^🎮\s*/, '');
+    } else if (titleWithoutIcon.startsWith('🌐')) {
+        titleWithoutIcon = titleWithoutIcon.replace(/^🌐\s*/, '');
+    } else if (titleWithoutIcon.startsWith('🤖')) {
+        titleWithoutIcon = titleWithoutIcon.replace(/^🤖\s*/, '');
+    }
     const projectContent = `
-        <div class="chapter">
+        <div class="chapter" id="${projectId}">
             <div class="chapter-header">
                 <div class="chapter-icon">${project.category === 'Game' ? '🎮' : project.category === 'Website' ? '🌐' : '🤖'}</div>
-                <h2 class="chapter-title">${project.title}</h2>
+                <h2 class="chapter-title">${titleWithoutIcon}</h2>
             </div>
             
             <div class="chapter-intro">
@@ -866,6 +887,27 @@ function loadProject(projectId) {
     `;
     
     document.getElementById('project-content').innerHTML = projectContent;
+    
+    // Đảm bảo active state được giữ sau khi load content
+    setTimeout(() => {
+        // Re-apply active state sau khi DOM được update
+        const targetLink = Array.from(allLinks).find(link => {
+            const dataProjectId = link.getAttribute('data-project-id');
+            const href = link.getAttribute('href');
+            return dataProjectId === projectId || href === `#${projectId}`;
+        });
+        
+        if (targetLink) {
+            allLinks.forEach(l => l.classList.remove('active'));
+            targetLink.classList.add('active');
+        }
+        
+        // Auto-scroll đến phần được load
+        const chapter = document.getElementById(projectId);
+        if (chapter) {
+            chapter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, 50);
     
     // Khởi tạo Python runner
     setTimeout(() => {
@@ -899,4 +941,24 @@ function toggleSolution(projectId) {
         btn.innerHTML = '<i class="fas fa-eye"></i> Hiển thị đáp án';
     }
 }
+
+// Thêm event listener cho tất cả sidebar links khi DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Attach event listeners cho projects links
+    const links = document.querySelectorAll('.sidebar-menu a[data-project-id]');
+    
+    links.forEach((link) => {
+        link.addEventListener('click', function(e) {
+            const clickedProjectId = this.getAttribute('data-project-id');
+            
+            if (clickedProjectId) {
+                // Update active state ngay lập tức - trước khi loadProject chạy
+                const allLinks = document.querySelectorAll('.sidebar-menu a');
+                allLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            }
+        }, true); // Use capture phase để chạy trước onclick handler
+    });
+});
+
 
