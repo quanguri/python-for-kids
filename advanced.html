@@ -6,6 +6,7 @@
     <title>🚀 Python Nâng Cao - Học Python Vui Vẻ</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -19,6 +20,7 @@
                 <li><a href="index.html">🏠 Trang Chủ</a></li>
                 <li><a href="basic.html">📚 Python Cơ Bản</a></li>
                 <li><a href="advanced.html" class="active">🚀 Python Nâng Cao</a></li>
+                <li><a href="algorithms.html">🧮 Thuật Toán</a></li>
             </ul>
         </div>
     </nav>
@@ -71,6 +73,30 @@ tuoi = <span class="function">int</span>(<span class="function">input</span>(<sp
                     nếu sai, chạy khối sau <code>else</code>.
                 </div>
 
+                <div id="python-runner-adv-1"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-adv-1').innerHTML = createPythonRunner(`# Kiểm tra tuổi (ví dụ)
+tuoi = 15  # Thay đổi số này để thử nghiệm
+
+if tuoi >= 18:
+    print("Bạn đã trưởng thành!")
+else:
+    print("Bạn còn nhỏ tuổi!")`, 'python-runner-adv-1');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
+
                 <h3>📝 Ví dụ 2: Phân loại điểm</h3>
                 <div class="code-example">
                     <code>
@@ -92,6 +118,36 @@ diem = <span class="function">float</span>(<span class="function">input</span>(<
                     <strong>Giải thích:</strong> <code>elif</code> là "else if" - kiểm tra điều kiện khác nếu điều kiện trước sai. 
                     Kiểm tra từ cao xuống thấp.
                 </div>
+
+                <div id="python-runner-adv-2"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-adv-2').innerHTML = createPythonRunner(`# Phân loại điểm (ví dụ)
+diem = 8.5  # Thay đổi số này để thử nghiệm
+
+if diem >= 9:
+    print("Xuất sắc!")
+elif diem >= 8:
+    print("Giỏi!")
+elif diem >= 7:
+    print("Khá!")
+elif diem >= 5:
+    print("Trung bình!")
+else:
+    print("Cần cố gắng thêm!")`, 'python-runner-adv-2');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
 
                 <h3>🔍 Toán tử so sánh</h3>
                 <ul>
@@ -610,6 +666,7 @@ may_tinh_menu()
         </div>
     </footer>
 
+    <script src="js/python-runner.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧮 Thuật Toán - Học Python Vui Vẻ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-snake"></i>
+                <span>Học Python Vui Vẻ</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Trang Chủ</a></li>
+                <li><a href="basic.html">📚 Python Cơ Bản</a></li>
+                <li><a href="advanced.html">🚀 Python Nâng Cao</a></li>
+                <li><a href="algorithms.html" class="active">🧮 Thuật Toán</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content Page -->
+    <div class="container content-page">
+        <!-- Sidebar - Danh sách bài toán -->
+        <aside class="sidebar">
+            <h3><i class="fas fa-list"></i> Danh Sách Bài Toán</h3>
+            <ul class="sidebar-menu" id="problem-list">
+                <li><a href="#problem1" class="active" onclick="loadProblem(1)">Bài 1: Tính tổng từ 1 đến n</a></li>
+                <li><a href="#problem2" onclick="loadProblem(2)">Bài 2: Kiểm tra số nguyên tố</a></li>
+                <li><a href="#problem3" onclick="loadProblem(3)">Bài 3: Tìm số lớn nhất</a></li>
+                <li><a href="#problem4" onclick="loadProblem(4)">Bài 4: Đảo ngược chuỗi</a></li>
+                <li><a href="#problem5" onclick="loadProblem(5)">Bài 5: Tính giai thừa</a></li>
+                <li><a href="#problem6" onclick="loadProblem(6)">Bài 6: Kiểm tra số hoàn hảo</a></li>
+                <li><a href="#problem7" onclick="loadProblem(7)">Bài 7: Tìm ước chung lớn nhất</a></li>
+                <li><a href="#problem8" onclick="loadProblem(8)">Bài 8: In tam giác số</a></li>
+                <li><a href="#problem9" onclick="loadProblem(9)">Bài 9: Tìm số nhỏ nhất</a></li>
+                <li><a href="#problem10" onclick="loadProblem(10)">Bài 10: Đếm số chẵn và số lẻ</a></li>
+                <li><a href="#problem11" onclick="loadProblem(11)">Bài 11: Kiểm tra số đối xứng</a></li>
+                <li><a href="#problem12" onclick="loadProblem(12)">Bài 12: Tính trung bình cộng</a></li>
+                <li><a href="#problem13" onclick="loadProblem(13)">Bài 13: Tìm số Fibonacci</a></li>
+                <li><a href="#problem14" onclick="loadProblem(14)">Bài 14: Kiểm tra năm nhuận</a></li>
+                <li><a href="#problem15" onclick="loadProblem(15)">Bài 15: Đếm số từ trong chuỗi</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div id="problem-content">
+                <!-- Nội dung bài toán sẽ được load động -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>🐍 Made with ❤️ for Kids Learning Python</p>
+            <p>Học vui vẻ, sáng tạo và không ngừng khám phá!</p>
+        </div>
+    </footer>
+
+    <script src="js/python-runner.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/algorithms.js"></script>
+</body>
+</html>
+

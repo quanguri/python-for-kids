@@ -6,6 +6,7 @@
     <title>📚 Python Cơ Bản - Học Python Vui Vẻ</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -19,6 +20,7 @@
                 <li><a href="index.html">🏠 Trang Chủ</a></li>
                 <li><a href="basic.html" class="active">📚 Python Cơ Bản</a></li>
                 <li><a href="advanced.html">🚀 Python Nâng Cao</a></li>
+                <li><a href="algorithms.html">🧮 Thuật Toán</a></li>
             </ul>
         </div>
     </nav>
@@ -75,6 +77,26 @@
                     Mỗi lần gọi <code>print()</code> sẽ in một dòng mới.
                 </div>
 
+                <div id="python-runner-1"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-1').innerHTML = createPythonRunner(`# In ra lời chào
+print("Xin chào! Tôi là Python!")
+print("Rất vui được gặp bạn!")`, 'python-runner-1');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
+
                 <h3>📝 Ví dụ 2: In tên của bạn</h3>
                 <div class="code-example">
                     <code>
@@ -87,6 +109,27 @@ ten_cua_toi = <span class="string">"Minh"</span><br>
                 <div class="code-explanation">
                     <strong>Giải thích:</strong> <code>ten_cua_toi</code> là biến để lưu tên. Ta có thể in nhiều thứ trong một lệnh <code>print()</code>.
                 </div>
+
+                <div id="python-runner-2"></div>
+                <script>
+                    (function() {
+                        function initRunner() {
+                            if (typeof createPythonRunner !== 'undefined') {
+                                document.getElementById('python-runner-2').innerHTML = createPythonRunner(`# Lưu tên vào biến
+ten_cua_toi = "Minh"
+print("Tên tôi là:", ten_cua_toi)
+print("Tôi 10 tuổi!")`, 'python-runner-2');
+                            } else {
+                                setTimeout(initRunner, 100);
+                            }
+                        }
+                        if (document.readyState === 'loading') {
+                            document.addEventListener('DOMContentLoaded', initRunner);
+                        } else {
+                            initRunner();
+                        }
+                    })();
+                </script>
 
                 <div class="exercise">
                     <h4>📚 Bài Tập Thực Hành</h4>
@@ -462,6 +505,7 @@ cau = <span class="string">f"Tên: {ten}, Tuổi: {tuoi}, Điểm: {diem}"</span
         </div>
     </footer>
 
+    <script src="js/python-runner.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
