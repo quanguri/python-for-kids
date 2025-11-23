@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Python Cơ Bản - Học Python Vui Vẻ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-snake"></i>
+                <span>Học Python Vui Vẻ</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Trang Chủ</a></li>
+                <li><a href="basic.html" class="active">📚 Python Cơ Bản</a></li>
+                <li><a href="advanced.html">🚀 Python Nâng Cao</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content Page -->
+    <div class="container content-page">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3><i class="fas fa-list"></i> Mục Lục</h3>
+            <ul class="sidebar-menu">
+                <li><a href="#chapter1">Chương 1: Python là gì?</a></li>
+                <li><a href="#chapter2">Chương 2: Biến và Kiểu Dữ Liệu</a></li>
+                <li><a href="#chapter3">Chương 3: Nhập và Xuất Dữ Liệu</a></li>
+                <li><a href="#chapter4">Chương 4: Toán Học và Phép Tính</a></li>
+                <li><a href="#chapter5">Chương 5: Chuỗi và Xử Lý Văn Bản</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="chapter" id="chapter1">
+                <div class="chapter-header">
+                    <div class="chapter-icon">📖</div>
+                    <h2 class="chapter-title">Chương 1: Python là gì?</h2>
+                </div>
+                
+                <div class="chapter-intro">
+                    <p>Chào mừng bạn đến với thế giới Python! 🐍 Python là một ngôn ngữ lập trình rất dễ học và thú vị. 
+                    Hãy tưởng tượng Python như một người bạn robot thông minh, bạn có thể ra lệnh cho nó làm nhiều việc hay ho!</p>
+                </div>
+
+                <h3>💡 Python là gì?</h3>
+                <p>Python là một ngôn ngữ lập trình được tạo ra bởi Guido van Rossum vào năm 1991. Tên "Python" không phải lấy từ con rắn, 
+                mà từ một chương trình hài kịch của Anh tên là "Monty Python's Flying Circus"! 🎭</p>
+
+                <h3>🎯 Tại sao chọn Python?</h3>
+                <ul>
+                    <li>✅ <strong>Dễ đọc:</strong> Code Python giống như đọc tiếng Anh vậy!</li>
+                    <li>✅ <strong>Dễ học:</strong> Phù hợp cho người mới bắt đầu</li>
+                    <li>✅ <strong>Mạnh mẽ:</strong> Làm được nhiều thứ: game, website, AI...</li>
+                    <li>✅ <strong>Phổ biến:</strong> Được dùng bởi Google, NASA, Instagram...</li>
+                </ul>
+
+                <h3>📝 Ví dụ 1: Chương trình đầu tiên</h3>
+                <div class="code-example">
+                    <code>
+<span class="comment"># In ra lời chào</span><br>
+<span class="function">print</span>(<span class="string">"Xin chào! Tôi là Python!"</span>)<br>
+<span class="function">print</span>(<span class="string">"Rất vui được gặp bạn!"</span>)
+                    </code>
+                </div>
+                <div class="code-explanation">
+                    <strong>Giải thích:</strong> Dòng đầu tiên là comment (bắt đầu bằng #). Hàm <code>print()</code> dùng để in ra màn hình. 
+                    Mỗi lần gọi <code>print()</code> sẽ in một dòng mới.
+                </div>
+
+                <h3>📝 Ví dụ 2: In tên của bạn</h3>
+                <div class="code-example">
+                    <code>
+<span class="comment"># Lưu tên vào biến</span><br>
+ten_cua_toi = <span class="string">"Minh"</span><br>
+<span class="function">print</span>(<span class="string">"Tên tôi là:"</span>, ten_cua_toi)<br>
+<span class="function">print</span>(<span class="string">"Tôi 10 tuổi!"</span>)
+                    </code>
+                </div>
+                <div class="code-explanation">
+                    <strong>Giải thích:</strong> <code>ten_cua_toi</code> là biến để lưu tên. Ta có thể in nhiều thứ trong một lệnh <code>print()</code>.
+                </div>
+
+                <div class="exercise">
+                    <h4>📚 Bài Tập Thực Hành</h4>
+                    <ol class="exercise-list">
+                        <li>Viết chương trình in ra 5 câu giới thiệu về bản thân</li>
+                        <li>Tạo chương trình in ra bài thơ ngắn (4 dòng)</li>
+                        <li>In ra bảng cửu chương 2 (từ 2x1 đến 2x10)</li>
+                    </ol>
+                </div>
+
+                <div class="solution">
+                    <h5>💡 Lời Giải Bài Tập 1</h5>
+                    <div class="code-example">
+                        <code>
+<span class="comment"># Giới thiệu bản thân</span><br>
+<span class="function">print</span>(<span class="string">"Xin chào! Tôi tên là Lan"</span>)<br>
+<span class="function">print</span>(<span class="string">"Tôi 10 tuổi"</span>)<br>
+<span class="function">print</span>(<span class="string">"Tôi học lớp 5"</span>)<br>
+<span class="function">print</span>(<span class="string">"Tôi thích lập trình Python"</span>)<br>
+<span class="function">print</span>(<span class="string">"Rất vui được làm quen với bạn!"</span>)
+                        </code>
+                    </div>
+                    <div class="code-explanation">
+                        <strong>Giải thích:</strong> Mỗi câu giới thiệu được in ra bằng một lệnh <code>print()</code> riêng.
+                    </div>
+                </div>
+
+                <div class="summary">
+                    <h4>📌 Tóm Tắt Chương</h4>
+                    <ul>
+                        <li>Python là ngôn ngữ lập trình dễ học và mạnh mẽ</li>
+                        <li>Hàm <code>print()</code> dùng để in ra màn hình</li>
+                        <li>Comment bắt đầu bằng dấu <code>#</code></li>
+                        <li>Biến dùng để lưu trữ dữ liệu</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chapter" id="chapter2">
+                <div class="chapter-header">
+                    <div class="chapter-icon">📝</div>
+                    <h2 class="chapter-title">Chương 2: Biến và Kiểu Dữ Liệu</h2>
+                </div>
+                
+                <div class="chapter-intro">
+                    <p>Biến giống như những chiếc hộp đựng đồ chơi của bạn! Mỗi hộp có tên riêng và bạn có thể đặt đồ vào, lấy ra, hoặc thay đổi đồ bên trong. 
+                    Hôm nay chúng ta sẽ học cách sử dụng các "hộp" này! 📦</p>
+                </div>
+
+                <h3>🎁 Biến là gì?</h3>
+                <p>Biến (variable) là nơi lưu trữ dữ liệu. Giống như bạn có một hộp tên "đồ chơi" để đựng đồ chơi, 
+                biến có tên để lưu dữ liệu!</p>
+
+                <h3>📦 Các Kiểu Dữ Liệu</h3>
+                <ul>
+                    <li><strong>Số nguyên (int):</strong> 1, 2, 100, -5</li>
+                    <li><strong>Số thập phân (float):</strong> 3.14, 2.5, 10.0</li>
+                    <li><strong>Chuỗi (string):</strong> "Xin chào", "Python"</li>
+                    <li><strong>Boolean:</strong> True hoặc False</li>
+                </ul>
+
+                <h3>📝 Ví dụ 1: Biến như hộp đồ chơi</h3>
+                <div class="code-example">
+                    <code>
+<span class="comment"># Tạo biến để lưu tên</span><br>
+ten = <span class="string">"Minh"</span><br>
+tuoi = <span class="number">10</span><br>
+chieu_cao = <span class="number">1.35</span>  <span class="comment"># mét</span><br>
+thich_lap_trinh = <span class="keyword">True</span><br>
+<br>
+<span class="function">print</span>(<span class="string">"Tên:"</span>, ten)<br>
+<span class="function">print</span>(<span class="string">"Tuổi:"</span>, tuoi)<br>
+<span class="function">print</span>(<span class="string">"Chiều cao:"</span>, chieu_cao, <span class="string">"mét"</span>)<br>
+<span class="function">print</span>(<span class="string">"Thích lập trình:"</span>, thich_lap_trinh)
+                    </code>
+                </div>
+                <div class="code-explanation">
+                    <strong>Giải thích:</strong> Biến giống hộp đựng đồ. <code>ten</code> lưu chuỗi, <code>tuoi</code> lưu số nguyên, 
+                    <code>chieu_cao</code> lưu số thập phân, <code>thich_lap_trinh</code> lưu True/False.
+                </div>
+
+                <h3>📝 Ví dụ 2: Tính toán với biến</h3>
+                <div class="code-example">
+                    <code>
+<span class="comment"># Lưu điểm số</span><br>
+diem_toan = <span class="number">9</span><br>
+diem_van = <span class="number">8</span><br>
+diem_anh = <span class="number">10</span><br>
+<br>
+<span class="comment"># Tính tổng điểm</span><br>
+tong_diem = diem_toan + diem_van + diem_anh<br>
+<span class="function">print</span>(<span class="string">"Tổng điểm:"</span>, tong_diem)<br>
+<br>
+<span class="comment"># Tính điểm trung bình</span><br>
+diem_trung_binh = tong_diem / <span class="number">3</span><br>
+<span class="function">print</span>(<span class="string">"Điểm trung bình:"</span>, diem_trung_binh)
+                    </code>
+                </div>
+                <div class="code-explanation">
+                    <strong>Giải thích:</strong> Ta có thể dùng biến để tính toán. <code>tong_diem</code> là tổng 3 môn, 
+                    <code>diem_trung_binh</code> là tổng chia 3.
+                </div>
+
+                <div class="exercise">
+                    <h4>📚 Bài Tập Thực Hành</h4>
+                    <ol class="exercise-list">
+                        <li>Tạo 3 biến lưu tên, tuổi, lớp của bạn. In ra thông tin này.</li>
+                        <li>Tạo biến so_1 = 15 và so_2 = 7. Tính và in ra tổng, hiệu, tích, thương.</li>
+                        <li>Tạo chương trình tính chu vi hình chữ nhật (chiều dài = 10, chiều rộng = 5).</li>
+                    </ol>
+                </div>
+
+                <div class="solution">
+                    <h5>💡 Lời Giải Bài Tập 1</h5>
+                    <div class="code-example">
+                        <code>
+<span class="comment"># Thông tin cá nhân</span><br>
+ten = <span class="string">"Lan"</span><br>
+tuoi = <span class="number">10</span><br>
+lop = <span class="string">"5A"</span><br>
+<br>
+<span class="function">print</span>(<span class="string">"Thông tin của tôi:"</span>)<br>
+<span class="function">print</span>(<span class="string">"Tên:"</span>, ten)<br>
+<span class="function">print</span>(<span class="string">"Tuổi:"</span>, tuoi)<br>
+<span class="function">print</span>(<span class="string">"Lớp:"</span>, lop)
+                        </code>
+                    </div>
+                    <div class="code-explanation">
+                        <strong>Giải thích:</strong> Tạo 3 biến để lưu thông tin, sau đó in ra từng dòng.
+                    </div>
+                </div>
+
+                <div class="summary">
+                    <h4>📌 Tóm Tắt Chương</h4>
+                    <ul>
+                        <li>Biến là nơi lưu trữ dữ liệu, giống như hộp đựng đồ</li>
+                        <li>Có 4 kiểu dữ liệu chính: số nguyên, số thập phân, chuỗi, boolean</li>
+                        <li>Có thể dùng biến để tính toán</li>
+                        <li>Biến có thể thay đổi giá trị</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chapter" id="chapter3">
+                <div class="chapter-header">
+                    <div class="chapter-icon">⌨️</div>
+                    <h2 class="chapter-title">Chương 3: Nhập và Xuất Dữ Liệu</h2>
+                </div>
+                
+                <div class="chapter-intro">
+                    <p>Bây giờ chúng ta sẽ học cách "nói chuyện" với máy tính! Bạn có thể hỏi người dùng và nhận câu trả lời, 
+                    giống như một cuộc trò chuyện thật sự! 💬</p>
+                </div>
+
+                <h3>📤 Hàm print() - Xuất dữ liệu</h3>
+                <p>Hàm <code>print()</code> dùng để in ra màn hình. Bạn đã biết cách dùng rồi!</p>
+
+                <h3>📥 Hàm input() - Nhập dữ liệu</h3>
+                <p>Hàm <code>input()</code> dùng để nhận dữ liệu từ người dùng. Khi gặp <code>input()</code>, 
+                chương trình sẽ dừng lại và chờ bạn nhập!</p>
+
+                <h3>📝 Ví dụ 1: Nhập tên và in ra</h3>
+                <div class="code-example">
+                    <code>
+<span class="comment"># Hỏi tên người dùng</span><br>
+ten = <span class="function">input</span>(<span class="string">"Bạn tên gì? "</span>)<br>
+<span class="function">print</span>(<span class="string">"Xin chào"</span>, ten, <span class="string">"!"</span>)<br>
+<span class="function">print</span>(<span class="string">"Rất vui được gặp bạn!"</span>)
+                    </code>
+                </div>
+                <div class="code-explanation">
+                    <strong>Giải thích:</strong> <code>input()</code> dừng chương trình để chờ người dùng nhập. 
+                    Dữ liệu nhập vào được lưu vào biến <code>ten</code>.
+                </div>
+
+                <h3>📝 Ví dụ 2: Nhập số và tính toán</h3>
+                <div class="code-example">
+                    <code>
+<span class="comment"># Nhập 2 số</span><br>
+so_1 = <span class="function">input</span>(<span class="string">"Nhập số thứ nhất: "</span>)<br>
+so_2 = <span class="function">input</span>(<span class="string">"Nhập số thứ hai: "</span>)<br>
+<br>
+<span class="comment"># Chuyển đổi sang số nguyên</span><br>
+so_1 = <span class="function">int</span>(so_1)<br>
+so_2 = <span class="function">int</span>(so_2)<br>
+<br>
+<span class="comment"># Tính tổng</span><br>
+tong = so_1 + so_2<br>
+<span class="function">print</span>(<span class="string">"Tổng của"</span>, so_1, <span class="string">"và"</span>, so_2, <span class="string">"là:"</span>, tong)
+                    </code>
+                </div>
+                <div class="code-explanation">
+                    <strong>Giải thích:</strong> <code>input()</code> luôn trả về chuỗi. Muốn tính toán, phải dùng <code>int()</code> 
+                    để chuyển sang số nguyên.
+                </div>
+
+                <h3>🔄 Chuyển đổi kiểu dữ liệu</h3>
+                <ul>
+                    <li><code>int()</code> - Chuyển sang số nguyên</li>
+                    <li><code>float()</code> - Chuyển sang số thập phân</li>
+                    <li><code>str()</code> - Chuyển sang chuỗi</li>
+                </ul>
+
+                <div class="exercise">
+                    <h4>📚 Bài Tập Thực Hành</h4>
+                    <ol class="exercise-list">
+                        <li>Tạo chương trình hỏi tên và tuổi, sau đó in ra "Bạn [tên] [tuổi] tuổi"</li>
+                        <li>Tạo máy tính tính điểm trung bình 3 môn (nhập điểm từ bàn phím)</li>
+                        <li>Tạo chương trình tính chu vi hình tròn (nhập bán kính)</li>
+                    </ol>
+                </div>
+
+                <div class="summary">
+                    <h4>📌 Tóm Tắt Chương</h4>
+                    <ul>
+                        <li><code>print()</code> dùng để in ra màn hình</li>
+                        <li><code>input()</code> dùng để nhận dữ liệu từ người dùng</li>
+                        <li><code>input()</code> luôn trả về chuỗi, cần chuyển đổi để tính toán</li>
+                        <li>Các hàm chuyển đổi: <code>int()</code>, <code>float()</code>, <code>str()</code></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chapter" id="chapter4">
+                <div class="chapter-header">
+                    <div class="chapter-icon">🔢</div>
+                    <h2 class="chapter-title">Chương 4: Toán Học và Phép Tính</h2>
+                </div>
+                
+                <div class="chapter-intro">
+                    <p>Python có thể làm toán rất giỏi! Hôm nay chúng ta sẽ học các phép toán và cách Python tính toán. 
+                    Bạn sẽ thấy Python là một máy tính siêu thông minh! 🧮</p>
+                </div>
+
+                <h3>➕ Các Phép Toán Cơ Bản</h3>
+                <ul>
+                    <li><code>+</code> - Cộng</li>
+                    <li><code>-</code> - Trừ</li>
+                    <li><code>*</code> - Nhân</li>
+                    <li><code>/</code> - Chia</li>
+                    <li><code>%</code> - Chia lấy dư</li>
+                    <li><code>**</code> - Lũy thừa</li>
+                </ul>
+
+                <h3>📝 Ví dụ 1: Các phép toán</h3>
+                <div class="code-example">
+                    <code>
+a = <span class="number">10</span><br>
+b = <span class="number">3</span><br>
+<br>
+<span class="function">print</span>(<span class="string">"a + b ="</span>, a + b)  <span class="comment"># Cộng</span><br>
+<span class="function">print</span>(<span class="string">"a - b ="</span>, a - b)  <span class="comment"># Trừ</span><br>
+<span class="function">print</span>(<span class="string">"a * b ="</span>, a * b)  <span class="comment"># Nhân</span><br>
+<span class="function">print</span>(<span class="string">"a / b ="</span>, a / b)  <span class="comment"># Chia</span><br>
+<span class="function">print</span>(<span class="string">"a % b ="</span>, a % b)  <span class="comment"># Chia lấy dư</span><br>
+<span class="function">print</span>(<span class="string">"a ** b ="</span>, a ** b)  <span class="comment"># Lũy thừa</span>
+                    </code>
+                </div>
+
+                <h3>📝 Ví dụ 2: Tính điểm trung bình</h3>
+                <div class="code-example">
+                    <code>
+<span class="comment"># Nhập điểm</span><br>
+diem_1 = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Điểm môn 1: "</span>))<br>
+diem_2 = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Điểm môn 2: "</span>))<br>
+diem_3 = <span class="function">float</span>(<span class="function">input</span>(<span class="string">"Điểm môn 3: "</span>))<br>
+<br>
+<span class="comment"># Tính trung bình</span><br>
+trung_binh = (diem_1 + diem_2 + diem_3) / <span class="number">3</span><br>
+<br>
+<span class="comment"># Làm tròn đến 1 chữ số thập phân</span><br>
+trung_binh = <span class="function">round</span>(trung_binh, <span class="number">1</span>)<br>
+<br>
+<span class="function">print</span>(<span class="string">"Điểm trung bình:"</span>, trung_binh)
+                    </code>
+                </div>
+
+                <div class="exercise">
+                    <h4>📚 Bài Tập Thực Hành</h4>
+                    <ol class="exercise-list">
+                        <li>Tính diện tích hình chữ nhật (dài = 8, rộng = 5)</li>
+                        <li>Tính diện tích hình tròn (bán kính = 6, π = 3.14)</li>
+                        <li>Chuyển đổi độ C sang độ F (F = C × 9/5 + 32)</li>
+                    </ol>
+                </div>
+
+                <div class="summary">
+                    <h4>📌 Tóm Tắt Chương</h4>
+                    <ul>
+                        <li>Python có các phép toán: +, -, *, /, %, **</li>
+                        <li>Thứ tự thực hiện: ngoặc → lũy thừa → nhân/chia → cộng/trừ</li>
+                        <li><code>round()</code> dùng để làm tròn số</li>
+                        <li>Có thể tính toán phức tạp với Python</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chapter" id="chapter5">
+                <div class="chapter-header">
+                    <div class="chapter-icon">📄</div>
+                    <h2 class="chapter-title">Chương 5: Chuỗi và Xử Lý Văn Bản</h2>
+                </div>
+                
+                <div class="chapter-intro">
+                    <p>Chuỗi (string) là dãy các ký tự, giống như một câu văn. Python có thể làm nhiều việc thú vị với chuỗi: 
+                    nối chuỗi, viết hoa, tìm kiếm... Hãy cùng khám phá! 🔤</p>
+                </div>
+
+                <h3>🔗 Nối Chuỗi</h3>
+                <p>Dùng dấu <code>+</code> để nối các chuỗi lại với nhau!</p>
+
+                <h3>📝 Ví dụ 1: Nối chuỗi</h3>
+                <div class="code-example">
+                    <code>
+ho = <span class="string">"Nguyễn"</span><br>
+ten = <span class="string">"Văn An"</span><br>
+ho_ten = ho + <span class="string">" "</span> + ten<br>
+<span class="function">print</span>(<span class="string">"Họ tên đầy đủ:"</span>, ho_ten)
+                    </code>
+                </div>
+
+                <h3>✨ F-string (Định dạng chuỗi)</h3>
+                <p>F-string là cách dễ nhất để tạo chuỗi có biến!</p>
+
+                <h3>📝 Ví dụ 2: F-string</h3>
+                <div class="code-example">
+                    <code>
+ten = <span class="string">"Lan"</span><br>
+tuoi = <span class="number">10</span><br>
+diem = <span class="number">9.5</span><br>
+<br>
+<span class="comment"># Dùng f-string</span><br>
+cau = <span class="string">f"Tên: {ten}, Tuổi: {tuoi}, Điểm: {diem}"</span><br>
+<span class="function">print</span>(cau)
+                    </code>
+                </div>
+
+                <h3>🛠️ Các Phương Thức Chuỗi</h3>
+                <ul>
+                    <li><code>.upper()</code> - Chuyển thành chữ hoa</li>
+                    <li><code>.lower()</code> - Chuyển thành chữ thường</li>
+                    <li><code>.replace()</code> - Thay thế từ</li>
+                    <li><code>.split()</code> - Tách chuỗi thành danh sách</li>
+                </ul>
+
+                <div class="exercise">
+                    <h4>📚 Bài Tập Thực Hành</h4>
+                    <ol class="exercise-list">
+                        <li>Nhập họ và tên riêng, sau đó nối lại và in ra</li>
+                        <li>Tạo chương trình viết hoa chữ cái đầu của tên</li>
+                        <li>Tạo chương trình đếm số từ trong một câu</li>
+                    </ol>
+                </div>
+
+                <div class="summary">
+                    <h4>📌 Tóm Tắt Chương</h4>
+                    <ul>
+                        <li>Dùng <code>+</code> để nối chuỗi</li>
+                        <li>F-string (f"...") là cách dễ nhất để định dạng chuỗi</li>
+                        <li>Có nhiều phương thức để xử lý chuỗi: upper, lower, replace, split</li>
+                        <li>Chuỗi rất hữu ích trong lập trình!</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>🐍 Made with ❤️ for Kids Learning Python</p>
+            <p>Học vui vẻ, sáng tạo và không ngừng khám phá!</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
